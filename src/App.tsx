@@ -1,4 +1,3 @@
-// App.tsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import BubbleBackground from './background/AnimatedBackground';
@@ -17,13 +16,13 @@ function App() {
       <Navbar />
       <BubbleBackground />
       <Cursor />
-      <MainRoutes /> {/* Use a separate component for the routes */}
+      <MainRoutes /> 
     </Router>
   );
 }
 
 const MainRoutes = () => {
-  const location = useLocation(); // Now it's inside the Router context
+  const location = useLocation(); 
 
   return (
     <AnimatePresence>

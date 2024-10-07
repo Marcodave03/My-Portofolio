@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <div >
-
+        <div className="h-14 mx-auto"></div>
         <div className="flex flex-col sm:flex-row items-center justify-center z-10">
             <div className="text-2xl col-span-2 text-center max-w-[20vw] text-wrap mb-2 sm:mb-0 sm:mr-4 z-10">
                 Marco Davincent Dermawan
