@@ -2,8 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import { useEffect, useState, useRef } from 'react'
 import Marco from "../assets/Marco.svg"
-import BubbleBackground from '../background/AnimatedBackground';
-import Cursor from '../components/Cursor';
+import Transition from '../transition';
 
 const Home = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -17,8 +16,6 @@ const Home = () => {
 
   return (
     <div >
-        <BubbleBackground/> 
-        <Cursor/>
 
         <div className="flex flex-col sm:flex-row items-center justify-center z-10">
             <div className="text-2xl col-span-2 text-center max-w-[20vw] text-wrap mb-2 sm:mb-0 sm:mr-4 z-10">
@@ -37,7 +34,7 @@ const Home = () => {
                     <img 
                         src={Marco} 
                         alt="Marco" 
-                        className={`mb-2 w-[30vw] h-auto transition-transform duration-700 ease-in-out ${isVisible ? 'translate-y-0' : 'translate-y-full'}`}
+                        className={`mb-2 md:w-[27vw] w-[30vw] h-auto transition-transform duration-700 ease-in-out ${isVisible ? 'translate-y-0' : 'translate-y-full'}`}
                     />
                 </div>
             </div>
@@ -77,4 +74,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default (props: any) => <Transition Component={Home} {...props} />;

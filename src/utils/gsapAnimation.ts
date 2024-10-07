@@ -1,6 +1,6 @@
-// src/utils/gsapAnimation.ts
-import { gsap } from 'gsap';
+import { gsap } from "gsap";
 
+// Page transition in animation (triggered when leaving the current page)
 export const pageTransitionIn = (targetText: string, onComplete?: () => void): void => {
   const tl = gsap.timeline({
     onComplete: () => {
@@ -9,21 +9,21 @@ export const pageTransitionIn = (targetText: string, onComplete?: () => void): v
     },
   });
 
-  // Animation sequence for transitioning in the cover
-  tl.set(".page-cover", { display: 'block' })
+  tl.set(".page-cover", { display: "block" })
     .fromTo(
       ".page-cover",
-      { y: "100%" }, // Start from the bottom
-      { y: "0%", duration: 1, ease: "power3.inOut" } // Move up to cover the screen
+      { y: "100%" }, // Start off-screen at the bottom
+      { y: "0%", duration: 1, ease: "power3.inOut" } // Animate upwards to full visibility
     )
     .fromTo(
       ".cover-text",
       { opacity: 0, scale: 0.8 },
       { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }
     )
-    .set(".cover-text", { textContent: targetText });
+    .set(".cover-text", { textContent: targetText }); // Set cover text
 };
 
+// Page transition out animation (triggered when entering the new page)
 export const pageTransitionOut = (onComplete?: () => void): void => {
   const tl = gsap.timeline({
     onComplete: () => {
@@ -32,11 +32,9 @@ export const pageTransitionOut = (onComplete?: () => void): void => {
     },
   });
 
-  // Animation sequence for transitioning out the cover
   tl.fromTo(
     ".page-cover",
-    { y: "0%" }, // Start from the current position (covering the screen)
-    { y: "-100%", duration: 1, ease: "power3.inOut" } // Move up to hide the cover
-  )
-    .set(".page-cover", { display: 'none' }); // Hide the cover after transition
+    { y: "0%" }, // Start at full visibility
+    { y: "-100%", duration: 1, ease: "power3.inOut" } // Animate off-screen (upwards)
+  ).set(".page-cover", { display: "none" }); // Hide cover after animation ends
 };
