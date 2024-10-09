@@ -37,7 +37,7 @@ const Home = () => {
             </div>
 
             <div className="text-2xl col-span-2 text-center max-w-[20vw] text-wrap mb-2 sm:mb-0 sm:ml-4 z-10" >
-                Web Developer & Design Enthusiast
+                Pengangguran
             </div>
         </div>
 

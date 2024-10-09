@@ -27,6 +27,28 @@ const Work = () => {
             <p className='text-red-500 text-center'>WORK WORK WORK</p>
             <p className='text-red-500 text-center'>WORK WORK WORK</p>
             <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
+            <p className='text-red-500 text-center'>WORK WORK WORK</p>
         </div>
     </div>
   )

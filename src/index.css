@@ -13,21 +13,26 @@
 
 /* index.css */
 .page-cover {
-  background-color: #000; /* Cover background color */
-  color: #fff; /* Text color */
-  display: none; /* Hide the cover by default */
-  justify-content: center;
-  align-items: center;
+  background-color: rgb(218, 217, 217); /* Cover background color */
+  color: #000000; /* Text color */
+  position: fixed; /* Make sure the cover overlays the entire viewport */
+  inset: 0; /* Stretch to all sides */
+  z-index: 50; /* Ensure it’s on top of other elements */
+  display: flex; /* Set display to flex to use flexbox properties */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
 
 .cover-text {
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: 3rem; /* Font size for the cover text */
+  font-weight: bold; /* Bold text */
+  text-align: center; /* Center text */
+  margin-top: 45vh;
 }
 
 .page-container {
-  position: relative;
-  overflow: hidden;
+  position: relative; /* Position relative for absolute children */
+  overflow: hidden; /* Hide overflow content */
 }
 
 

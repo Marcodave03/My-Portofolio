@@ -35,12 +35,13 @@ const PageTransition = ({ children }: { children: React.ReactNode }) => {
     <div className="page-container relative">
       {/* Page Cover Element */}
       <div
-        className={`page-cover fixed inset-0 z-50 bg-black text-white flex items-center justify-center ${
-          isAnimating ? "block" : "hidden"
+        className={`page-cover fixed inset-0 z-50 flex items-center justify-center ${
+          isAnimating ? "flex" : "hidden"
         }`}
       >
         <div className="cover-text text-4xl font-bold">LOADING...</div>
       </div>
+
 
       {/* Render the old children (current page) */}
       <div

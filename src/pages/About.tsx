@@ -29,6 +29,26 @@ const About = () => {
             <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
             <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
             <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
+            <p className='text-red-500 text-center'>ABOUT ABOUT ABOUT</p>
         </div>
         
     </div>
