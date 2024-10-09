@@ -16,14 +16,14 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: -1; /* Ensure this is behind other elements */
+    z-index: -1; 
 }
 
 .bubble {
     position: absolute;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.8);
     animation: bubbleAnimation 25s infinite;
+    border: 2px solid rgba(255, 255, 255, 0.6);
 }
 
 @keyframes bubble-animation {
@@ -44,7 +44,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: -1; /* Ensure this is behind other elements */
+    z-index: -1; 
 }
 
 .circles li {
@@ -52,12 +52,11 @@ body {
     display: block;
     list-style: none;
     border-radius: 50%;
-    background: rgba(255, 255, 234, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.6);
     animation: animate 25s linear infinite;
     bottom: -150px;
 }
 
-/* Customize the circles' sizes and animation delays */
 .circles li:nth-child(1) {
     left: 25%;
     width: 80px;
