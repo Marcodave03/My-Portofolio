@@ -6,12 +6,15 @@ import Welcome from "./pages/Welcome";
 import Home from "./pages/Home";
 import Work from "./pages/Work";
 import About from "./pages/About";
+import BubbleBackground from "./background/AnimatedBackground";
+import Cursor from "./components/Cursor";
 
 function App() {
   return (
-
     <Router>
       <Navbar/>   
+      <BubbleBackground/> 
+      <Cursor/>
       <PageTransition>
         <Routes>
           <Route path="/" element={<Welcome />} />
