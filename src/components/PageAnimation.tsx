@@ -1,47 +1,45 @@
-// src/components/PageTransition.tsx
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { pageTransitionIn, pageTransitionOut } from "../utils/gsapAnimation";
 
-const PageTransition = ({ children }: { children: React.ReactNode }) => {
+const PageTransition: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
+  const [nextContent, setNextContent] = useState<React.ReactNode>(children);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [nextContent, setNextContent] = useState<React.ReactNode>(children); // State to store next content
+  const [targetText, setTargetText] = useState("LOADING...");
+  const animationInProgress = useRef(false); // Track if an animation is in progress
+  const coverTextRef = useRef(null);
+  
 
   useEffect(() => {
-    const targetText = location.pathname.substring(1).toUpperCase() || "HOME";
-    const coverTextElement = document.querySelector(".cover-text");
+    // setTargetText(location.pathname.substring(1).toUpperCase() || "HOME");
+    // Only proceed if not already animating
+    if (!animationInProgress.current) {
+      animationInProgress.current = true; // Set the animation flag
 
-    if (coverTextElement) {
-      coverTextElement.textContent = targetText; // Update text immediately
+      // Update the next content
+      setNextContent(children);
+
+      // Start the page transition
+      pageTransitionOut(() => {
+        setIsAnimating(false); 
+        animationInProgress.current = false; 
+      });
     }
 
-    // Start the page transition
-    setIsAnimating(true);
 
-    // Set next content before the transition in
-    setNextContent(children); // Update the next content
-
-    // Trigger the transition in animation
-    pageTransitionIn(targetText, () => {
-      // Start the transition out
-      pageTransitionOut(() => {
-        setIsAnimating(false); // Hide the cover once transition out is complete
-      });
-    });
-  }, [location, children]); // Add children to the dependency array
+  }, [location, children]);
 
   return (
     <div className="page-container relative">
       {/* Page Cover Element */}
       <div
-        className={`page-cover fixed inset-0 z-50 flex items-center justify-center ${
-          isAnimating ? "flex" : "hidden"
+        className={`page-cover fixed inset-0 z-50 flex items-center justify-center 
+          ${isAnimating ? "flex" : "hidden"
         }`}
       >
-        <div className="cover-text text-4xl font-bold">LOADING...</div>
+        <div className="cover-text text-4xl font-bold" ref={coverTextRef}>{targetText}</div> 
       </div>
-
 
       {/* Render the old children (current page) */}
       <div

@@ -23,7 +23,7 @@ const Home = () => {
                 ${isVisible ? 'scale-100' : 'scale-110'}`}>
                 
                 <div
-                    className={`w-[97%] h-[97%] bg-black rounded-full transition-transform duration-500 ease-in-out 
+                    className={`w-[97%] h-[97%] bg-black rounded-full delay-200 transition-transform duration-500 ease-in-out 
                         ${isVisible ? 'scale-100' : 'scale-0'}`}>
                 </div>
 
@@ -31,7 +31,7 @@ const Home = () => {
                     <img 
                         src={Marco} 
                         alt="Marco" 
-                        className={`mb-2 w-[30vw] h-auto transition-transform duration-700 ease-in-out ${isVisible ? 'translate-y-0' : 'translate-y-full'}`}
+                        className={`mb-2 w-[30vw] h-auto delay-200 transition-transform duration-700 ease-in-out ${isVisible ? 'translate-y-0' : 'translate-y-full'}`}
                     />
                 </div>
             </div>
