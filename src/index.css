@@ -2,6 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Cursor */
+.cursor-dot,
+.cursor-outline {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none; 
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  z-index: 10000; 
+}
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: black; 
+  z-index: 10001; 
+}
+.cursor-outline {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black; 
+  z-index: 10000;
+}
+.cursor-dot,
+.cursor-outline{
+  position:fixed;
+  top:0;
+  left:0;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  z-index:20;
+  pointer-events: none;
+}
+  
+  
 /* navbar */
 .navbar-bg {
   background: linear-gradient(
@@ -10,32 +44,17 @@
     rgba(255, 255, 255, 0.1) 100%
   );
 }
-
-/* index.css */
-.page-cover {
-  background-color: rgb(218, 217, 217); /* Cover background color */
-  color: #000000; /* Text color */
-  position: fixed; /* Make sure the cover overlays the entire viewport */
-  inset: 0; /* Stretch to all sides */
-  z-index: 50; /* Ensure it’s on top of other elements */
-  display: flex; /* Set display to flex to use flexbox properties */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+.scroll-container {
+  height: 30px; 
+  overflow: hidden; 
+  position: relative; 
 }
-
-.cover-text {
-  font-size: 3rem; /* Font size for the cover text */
-  font-weight: bold; /* Bold text */
-  text-align: center; /* Center text */
-  margin-top: 45vh;
+.scroll {
+  display: inline-block; 
+  position: absolute; 
+  white-space: nowrap;
+  transition: opacity 0.5s ease; 
 }
-
-.page-container {
-  position: relative; /* Position relative for absolute children */
-  overflow: hidden; /* Hide overflow content */
-}
-
-/* styles.css */
 @keyframes scroll-up {
   0% {
     transform: translateY(0);
@@ -51,104 +70,25 @@
   }
 }
 
-.scroll-container {
-  height: 30px; /* Adjust if needed */
-  overflow: hidden; /* Hide overflow text */
-  position: relative; /* Position relative for child positioning */
+
+/* Page Animation */
+.page-cover {
+  background-color: rgb(218, 217, 217); 
+  color: #000000; 
+  position: fixed; 
+  inset: 0; 
+  z-index: 50; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
 }
-
-.scroll {
-  display: inline-block; /* Make the element inline-block for animation */
-  position: absolute; /* Position absolute to animate within the container */
-  white-space: nowrap; /* Prevent text wrapping */
-  transition: opacity 0.5s ease; /* Smooth transition for opacity */
+.cover-text {
+  font-size: 3rem; 
+  font-weight: bold; 
+  text-align: center; 
+  margin-top: 45vh;
 }
-
-/* Cursor */
-/* .cursor-outline{
-  width:30px;
-  height:30px;
-  border: 2px solid hsla(0, 0%, 100%, 0.5)
+.page-container {
+  position: relative; 
+  overflow: hidden; 
 }
-
-.cursor-dot,
-.cursor-outline{
-  position:fixed;
-  top:0;
-  left:0;
-  transform: translate(-50%,-50%);
-  border-radius: 50%;
-  z-index:20;
-  pointer-events: none;
-} */
-
-
-
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
