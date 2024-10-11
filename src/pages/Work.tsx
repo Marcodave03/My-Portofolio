@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import { pageTransitionIn } from "../utils/gsapAnimation";
+// import { useState, useEffect, useRef } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { pageTransitionIn } from "../utils/gsapAnimation";
 
 const Work = () => {
   // const [activeSection, setActiveSection] = useState(null);
