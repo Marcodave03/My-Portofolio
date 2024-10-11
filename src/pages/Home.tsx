@@ -1,5 +1,6 @@
 import { useEffect, useState} from 'react'
-import Marco from "../assets/Marco.svg"
+import Marco1 from "../assets/Marco.svg"
+import Marco from "../assets/Group 176.svg"
 import TextAnimation from "../utils/textAnimation";
 import { GitHub , Instagram, LinkedIn, ArrowForward, ArrowBack } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
@@ -76,12 +77,12 @@ const Home = () => {
                     <img 
                         src={Marco} 
                         alt="Marco" 
-                        className={`mb-2 w-[30vw] h-auto delay-200 transition-transform duration-700 ease-in-out ${isVisible ? 'translate-y-0' : 'translate-y-full'}`}
+                        className={`mb-2 w-[40vw] h-auto delay-200 transition-transform duration-700 ease-in-out ${isVisible ? 'translate-y-20' : 'translate-y-full'}`}
                     />
                 </div>
             </div>
 
-            <div className="md:text-5xl sm:text-sm col-span-2 text-start w-[30vw] text-wrap mb-2 sm:mb-0 lg:ml-6 sm:ml-4 z-10" >
+            <div className="md:text-6xl sm:text-sm col-span-2 text-start w-[25vw] text-wrap mb-2 sm:mb-0 lg:ml-6 sm:ml-4 z-10" >
                 Web Developer & Digital Designer
                 <div className="flex">
                     <div className="relative w-64 h-12 border-2 border-black overflow-hidden group cursor-pointer rounded-full mt-5 mr-3">
