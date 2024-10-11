@@ -3,44 +3,44 @@ import { useNavigate } from "react-router-dom";
 import { pageTransitionIn } from "../utils/gsapAnimation";
 
 const Work = () => {
-  const [activeSection, setActiveSection] = useState(null);
-  const navigate = useNavigate();
-  const sectionRefs = {
-    project1: useRef(null),
-    project2: useRef(null),
-    project3: useRef(null),
-  };
+  // const [activeSection, setActiveSection] = useState(null);
+  // const navigate = useNavigate();
+  // const sectionRefs = {
+  //   project1: useRef(null),
+  //   project2: useRef(null),
+  //   project3: useRef(null),
+  // };
 
-  const handleNavigation = (target: string) => {
-    const targetText = target.substring(1).toUpperCase() || "HOME";
-    pageTransitionIn(targetText, () => {
-      navigate(target);
-    });
-  };
+  // const handleNavigation = (target: string) => {
+  //   const targetText = target.substring(1).toUpperCase() || "HOME";
+  //   pageTransitionIn(targetText, () => {
+  //     navigate(target);
+  //   });
+  // };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = Object.keys(sectionRefs);
-      let currentSection = null;
-      for (let section of sections) {
-        const sectionTop = sectionRefs[section].current.offsetTop;
-        const scrollPosition = window.scrollY + 100;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const sections = Object.keys(sectionRefs);
+  //     let currentSection = null;
+  //     for (let section of sections) {
+  //       const sectionTop = sectionRefs[section].current.offsetTop;
+  //       const scrollPosition = window.scrollY + 100;
 
-        if (scrollPosition >= sectionTop) {
-          currentSection = section;
-        }
-      }
-      setActiveSection(currentSection);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //       if (scrollPosition >= sectionTop) {
+  //         currentSection = section;
+  //       }
+  //     }
+  //     setActiveSection(currentSection);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
     <div className="flex">
-      <div
+{/*       <div
         className="fixed top-1/2 right-0 transform -translate-y-1/2 h-[20vw] w-8 bg-black z-10 hover:w-14 transition-all duration-300 ease-in-out"
         onClick={() => handleNavigation("/about")}
       >
@@ -148,7 +148,7 @@ const Work = () => {
             This is the description for Project 3.
           </p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
