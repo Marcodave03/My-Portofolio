@@ -7,10 +7,7 @@ const Navbar: React.FC = () => {
 
   const handleNavigation = (target: string) => {
     const targetText = target.substring(1).toUpperCase() || "HOME";
-
-    // Trigger the transition in animation first
     pageTransitionIn(targetText, () => {
-      // Navigate to the target route after transition in is complete
       navigate(target);
     });
   };
@@ -22,10 +19,10 @@ const Navbar: React.FC = () => {
           onClick={() => handleNavigation("/about")}
           className="relative overflow-hidden text-gray-600 group"
         >
-          <span className="text-xl font-bold text-black block transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
+          <span className="text-xl font-bold text-gray-600 block transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
             Marco D.
           </span>
-          <span className="text-xl font-bold block absolute inset-0 transition-transform duration-300 transform translate-y-full group-hover:translate-y-0 text-blue-600">
+          <span className="text-xl font-bold block absolute inset-0 transition-transform duration-300 transform translate-y-full group-hover:translate-y-0 text-black">
             Marco D.
           </span>
         </button>
@@ -33,36 +30,36 @@ const Navbar: React.FC = () => {
         <div className="flex space-x-6">
           <button
             onClick={() => handleNavigation("/home")}
-            className="relative overflow-hidden text-gray-600 group"
+            className="w-16 relative overflow-hidden text-gray-600 group"
           >
             <span className="block transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
               Home
             </span>
-            <span className="block absolute inset-0 transition-transform duration-300 transform translate-y-full group-hover:translate-y-0 text-blue-600">
+            <span className="block absolute inset-0 transition-transform duration-300 transform translate-y-full group-hover:translate-y-0 font-bold">
               Home
             </span>
           </button>
 
           <button
             onClick={() => handleNavigation("/work")}
-            className="relative overflow-hidden text-gray-600 group"
+            className="w-16 relative overflow-hidden text-gray-600 group"
           >
             <span className="block transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
-              Work
+              Project
             </span>
-            <span className="block absolute inset-0 transition-transform duration-300 transform translate-y-full group-hover:translate-y-0 text-blue-600">
-              Work
+            <span className="block absolute inset-0 transition-transform duration-300 transform translate-y-full group-hover:translate-y-0 font-bold">
+              Project
             </span>
           </button>
 
           <button
             onClick={() => handleNavigation("/about")}
-            className="relative overflow-hidden text-gray-600 group"
+            className="w-16 relative overflow-hidden text-gray-600 group"
           >
             <span className="block transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
               About
             </span>
-            <span className="block absolute inset-0 transition-transform duration-300 transform translate-y-full group-hover:translate-y-0 text-blue-600">
+            <span className="block absolute inset-0 transition-transform duration-300 transform translate-y-full group-hover:translate-y-0 font-bold">
               About
             </span>
           </button>

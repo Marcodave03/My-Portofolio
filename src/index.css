@@ -1,6 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+
+*{
+  font-family: "Oswald", sans-serif;
+  font-stretch: narrower;
+  scroll-behavior: smooth;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Oswald", sans-serif;
+}
 
 /* Cursor */
 .cursor-dot,
@@ -38,11 +51,11 @@
   
 /* navbar */
 .navbar-bg {
-  background: linear-gradient(
+  /* background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 0.1) 100%
-  );
+    rgba(255, 255, 255) 0%,
+    rgba(255, 255, 255, 0.9) 100%
+  ); */
 }
 .scroll-container {
   height: 30px; 
@@ -73,8 +86,8 @@
 
 /* Page Animation */
 .page-cover {
-  background-color: rgb(218, 217, 217); 
-  color: #000000; 
+  background-color: #333333; 
+  color: #ffffff; 
   position: fixed; 
   inset: 0; 
   z-index: 50; 
@@ -91,4 +104,44 @@
 .page-container {
   position: relative; 
   overflow: hidden; 
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 5px rgb(156, 156, 156); 
+  opacity: 0%;
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(70, 70, 70); 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #333333; 
+}
+
+
+@keyframes expand-fade {
+  0% {
+      transform: scale(0);
+      opacity: 1;
+  }
+  100% {
+      transform: scale(1.5);
+      opacity: 0; /* Fade out */
+  }
+}
+
+.blinking-circle {
+  animation: expand-fade 3s ease-in-out infinite;
 }

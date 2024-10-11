@@ -1,12 +1,13 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import PageAnimation from "./components/PageAnimation";
-import Welcome from "./pages/Welcome";
 import Home from "./pages/Home";
 import Work from "./pages/Work";
 import About from "./pages/About";
+import SplashScreen from "./pages/About";
 import BubbleBackground from "./background/AnimatedBackground";
 import Cursor from "./components/Cursor";
+
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function AnimatedRoutes() {
   return (
     <PageAnimation>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Welcome />} />
+        <Route path="/" element={<SplashScreen/>} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/work" element={<Work />} />
