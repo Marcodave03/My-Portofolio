@@ -29,11 +29,11 @@ const PageTransition: React.FC<{ children: React.ReactNode }> = ({ children }) =
   return (
     <div className="page-container relative">
       <div
-        className={`page-cover fixed inset-0 z-50 flex items-center justify-center 
+        className={`page-cover fixed inset-0 z-[70] flex items-center justify-center 
           ${isAnimating ? "flex" : "hidden"
         }`}
       >
-        <div className="cover-text text-4xl font-bold" ref={coverTextRef}>{targetText}</div> 
+        <div className="cover-text text-6xl" style={{fontSize:"100px"}} ref={coverTextRef}>{targetText}</div> 
       </div>
 
 

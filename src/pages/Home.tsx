@@ -5,6 +5,8 @@ import TextAnimation from "../utils/textAnimation";
 import { GitHub , Instagram, LinkedIn, ArrowForward, ArrowBack } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { pageTransitionIn } from "../utils/gsapAnimation";
+import Footer from "../components/Footer";
+import Mockup from "../assets/mockup.jpg";
 
 const Home = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -82,11 +84,11 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="md:text-6xl sm:text-sm col-span-2 text-start w-[25vw] text-wrap mb-2 sm:mb-0 lg:ml-6 sm:ml-4 z-10" >
+            <div className="md:text-6xl sm:text-sm col-span-2 text-start w-[30vw] text-wrap mb-2 sm:mb-0 lg:ml-6 sm:ml-4 z-10" >
                 Web Developer & Digital Designer
                 <div className="flex">
                     <div className="relative w-64 h-12 border-2 border-black overflow-hidden group cursor-pointer rounded-full mt-5 mr-3">
-                        <div className="absolute top-0 left-0 h-full w-0 bg-white transition-all duration-500 group-hover:w-full"></div>
+                        <div className="absolute top-0 left-0 h-full w-0 bg-blue-300 transition-all duration-500 group-hover:w-full"></div>
                         <div className="relative z-10 flex items-center justify-center h-full text-black">
                             <span className="text-2xl font-normal">Get in touch</span>
                         </div>
@@ -95,7 +97,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="relative w-20 h-12 border-2 border-black overflow-hidden group cursor-pointer rounded-full mt-5">
-                        <div className="absolute top-0 left-0 h-full w-0 bg-white transition-all duration-500 group-hover:w-full"></div>
+                        <div className="absolute top-0 left-0 h-full w-0 bg-blue-300 transition-all duration-500 group-hover:w-full"></div>
                         <div className="relative z-10 flex items-center justify-center h-full text-black">
                             <span className="text-2xl font-normal">CV</span>
                         </div>
@@ -103,6 +105,59 @@ const Home = () => {
                 </div>  
             </div>
         </div>
+
+        <div className="ml-14 text-6xl col-span-2 text-start w-[100vw] text-wrap mb-4 z-10 mt-64" >
+            Code. Create. Innovate
+        </div>
+        <div className="mx-auto w-[95vw] h-[1px] bg-black mb-8"></div>
+        <div className="flex justify-center mx-auto w-[90vw]">
+            <img 
+                src={Mockup} 
+                alt="mockup" 
+                className="m-4 w-[44vw] h-auto"
+            />
+            <img 
+                src={Mockup} 
+                alt="mockup" 
+                className="m-4 w-[44vw] h-auto"
+            />
+        </div>
+        <div className="flex justify-center mx-auto w-[90vw] mt-4">
+            <img 
+                src={Mockup} 
+                alt="mockup" 
+                className="w-[90vw] h-[30vw] object-cover"
+            />
+        </div>
+
+        
+        <div className="text-4xl col-span-2 text-right w-[100vw] mb-4 mt-14 underline pr-24" >
+            <ArrowForward fontSize="large" sx={{color:'black'}}/> All Projects
+        </div>
+
+        <div className="mx-auto w-[95vw] h-[1px] bg-black mb-8"></div>
+
+        <div className="ml-24 text-6xl text-start w-[100vw]  mb-24 mt-4" >
+            What I do 
+        </div>
+        
+        <div className="text-3xl ml-24 w-[70vw] text-wrap leading-relaxed text-left mb-2">
+          "As a <strong className="font-bold">fullstack developer</strong> , I
+          turn complex problems into intuitive solutions, blending creativity
+          with technical expertise. From{" "}
+          <strong className="font-bold">
+            designing responsive user interfaces
+          </strong>{" "}
+          to building robust{" "}
+          <strong className="font-bold">backend systems</strong>, my goal is to
+          craft seamless and scalable digital experiences that make an impact."
+        </div>
+
+        <div className="text-4xl col-span-2 text-right w-[100vw] mb-64 mt-2 underline pr-24" >
+            <ArrowForward fontSize="large" sx={{color:'black'}}/> About Me
+        </div>
+
+        <Footer/>
     </div>
   )
 }

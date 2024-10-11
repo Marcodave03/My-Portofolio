@@ -23,7 +23,7 @@ body {
     position: absolute;
     border-radius: 50%;
     animation: bubbleAnimation 25s infinite;
-    border: 2px solid rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(228, 228, 228, 0.8);
 }
 
 @keyframes bubble-animation {
@@ -52,7 +52,7 @@ body {
     display: block;
     list-style: none;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(170, 170, 170, 0.8);
     animation: animate 25s linear infinite;
     bottom: -150px;
 }

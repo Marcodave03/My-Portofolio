@@ -5,14 +5,14 @@
 
 
 *{
-  font-family: "Oswald", sans-serif;
+  font-family: Tahoma, sans-serif;
   font-stretch: narrower;
   scroll-behavior: smooth;
 }
 
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Oswald", sans-serif;
+  font-family: Tahoma, sans-serif;
 }
 
 /* Cursor */
@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
   pointer-events: none; 
   transform: translate(-50%, -50%);
   will-change: transform;
-  z-index: 10000; 
+  z-index: 32; 
 }
 .cursor-dot {
   width: 8px;
@@ -96,10 +96,8 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
 }
 .cover-text {
-  font-size: 3rem; 
-  font-weight: bold; 
   text-align: center; 
-  margin-top: 45vh;
+  margin-top: 40vh;
 }
 .page-container {
   position: relative; 
