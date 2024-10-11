@@ -48,7 +48,6 @@ const Work = () => {
           <h1 className="text-xl">About</h1>
         </div>
       </div>
-      {/* Sidebar Navigation */}
       <div
         className="w-[25vw] h-full fixed top-0 left-0 p-4 overflow-y-auto"
         style={{ backgroundColor: "rgba(31, 41, 55, 0.2)" }}
@@ -90,9 +89,8 @@ const Work = () => {
         </div>
       </div>
 
-      {/* Scrollable Content Section */}
       <div className="ml-[25vw] w-full h-full overflow-y-auto p-2 m-12">
-        {/* Project 1 Section */}
+
         <div id="project1" ref={sectionRefs.project1} className="h-screen">
           <h1 className="text-3xl font-bold text-center">Project 1</h1>
           <p className="text-center mt-4">
@@ -109,7 +107,7 @@ const Work = () => {
           </p>
         </div>
 
-        {/* Project 2 Section */}
+
         <div id="project2" ref={sectionRefs.project2} className="h-screen">
           <h1 className="text-3xl font-bold text-center">Project 2</h1>
           <p className="text-center mt-4">
@@ -129,7 +127,7 @@ const Work = () => {
           </p>
         </div>
 
-        {/* Project 3 Section */}
+
         <div id="project3" ref={sectionRefs.project3} className="h-screen">
           <h1 className="text-3xl font-bold text-center">Project 3</h1>
           <p className="text-center mt-4">
