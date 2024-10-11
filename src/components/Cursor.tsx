@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import '../index.css'; 
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import "../index.css";
 
 const CustomCursor: React.FC = () => {
   const cursorDotRef = useRef<HTMLDivElement>(null);
@@ -21,21 +21,25 @@ const CustomCursor: React.FC = () => {
         x: e.clientX,
         y: e.clientY,
         duration: 0.3,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
     };
 
-    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener("mousemove", onMouseMove);
 
     return () => {
-      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener("mousemove", onMouseMove);
     };
   }, []);
 
   return (
     <>
       <div ref={cursorDotRef} className="cursor-dot" data-cursor-dot></div>
-      <div ref={cursorOutlineRef} className="cursor-outline" data-cursor-outline></div>
+      <div
+        ref={cursorOutlineRef}
+        className="cursor-outline"
+        data-cursor-outline
+      ></div>
     </>
   );
 };

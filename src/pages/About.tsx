@@ -2,18 +2,12 @@ import { useNavigate } from "react-router-dom";
 import { pageTransitionIn } from "../utils/gsapAnimation";
 import { useState, useEffect } from "react";
 import Marco from "../assets/Group 176.svg";
-import {
-  GitHub,
-  Instagram,
-  LinkedIn,
-  ArrowForward,
-  ArrowBack,
-} from "@mui/icons-material";
+import {ArrowForward,} from "@mui/icons-material";
 import Experience from "./Experience";
 import Footer from "../components/Footer";
 
 const About = () => {
-  const [isVisible, setIsVisible] = useState(true); // Ensure it's true to show the image
+  const [isVisible] = useState(true);
   const navigate = useNavigate();
 
   const handleNavigation = (target: string) => {
@@ -37,30 +31,8 @@ const About = () => {
     };
   }, []);
 
-  const faqList = [
-    {
-      question: "What is a fullstack developer?",
-      answer:
-        "A fullstack developer is someone who works on both frontend and backend parts of an application.",
-      link: "/fullstack-developer", // Link to another page
-    },
-    {
-      question: "What technologies do fullstack developers use?",
-      answer:
-        "Common technologies include React, Node.js, Laravel, and databases like MongoDB or PostgreSQL.",
-      link: "/technologies", // Link to another page
-    },
-    {
-      question: "How do I become a fullstack developer?",
-      answer:
-        "Start by learning both frontend and backend technologies and practice building full applications.",
-      link: "/learn-fullstack", // Link to another page
-    },
-  ];
-
   return (
     <div>
-      {/* Navigation Button */}
       <div
         className="fixed top-1/2 right-0 transform -translate-y-1/2 h-[20vw] w-8 bg-black z-10 hover:w-14 transition-all duration-300 ease-in-out"
         onClick={() => handleNavigation("/home")}
@@ -69,26 +41,23 @@ const About = () => {
           <h1 className="text-xl">Marco.</h1>
         </div>
       </div>
-
-      {/* Scrolling Text */}
       <div className="overflow-hidden h-[30vw] relative ">
         <div
           className="absolute w-[200vw] text-[16vw] font-bold text-center whitespace-nowrap mt-36 hover:opacity-0"
           style={{
-            transform: `translateX(${-scrollPosition * 0.9}px)`, // Controls the speed of horizontal movement
+            transform: `translateX(${-scrollPosition * 0.9}px)`, 
           }}
         >
           - ABOUT ME ----------------------------
         </div>
       </div>
 
-      {/* Static Text */}
+
       <div className="text-6xl text-start w-[100vw] text-wrap mt-8 ml-48 hover:opacity-100 transition-opacity duration-300">
         Marco Davincent Dermawan
       </div>
 
       <div className="flex items-center justify-start mt-96 ml-36">
-        {/* Image Container */}
         <div className="relative w-[30vw] h-[28vw] border-2 border-black rounded-full bg-transparent flex items-center justify-center mb-2 sm:mb-0">
           <div
             className={`w-[97%] h-[97%] bg-black rounded-full ${
@@ -105,8 +74,6 @@ const About = () => {
             />
           </div>
         </div>
-
-        {/* Text Content */}
         <div className="text-3xl ml-8 mr-24 w-[60vw] text-wrap leading-relaxed text-left ">
           "As a <strong className="font-bold">fullstack developer</strong> , I
           turn complex problems into intuitive solutions, blending creativity
@@ -147,15 +114,11 @@ const About = () => {
           </div>
         </div>
       </div>
-
       <div className="text-6xl text-start w-[100vw] text-wrap mt-64 ml-48 transition-opacity duration-300">
         My Journey
       </div>
-
       <Experience />
-
-
-      <Footer/>
+      <Footer />
     </div>
   );
 };

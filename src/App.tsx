@@ -12,7 +12,6 @@ import About from "./pages/About";
 import BubbleBackground from "./background/AnimatedBackground";
 import Cursor from "./components/Cursor";
 
-
 function App() {
   return (
     <Router>

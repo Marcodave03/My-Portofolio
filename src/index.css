@@ -1,17 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
 
-
-*{
+* {
   font-family: Tahoma, sans-serif;
   font-stretch: narrower;
   scroll-behavior: smooth;
 }
 
-
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: Tahoma, sans-serif;
 }
 
@@ -20,35 +23,34 @@ h1, h2, h3, h4, h5, h6 {
 .cursor-outline {
   position: absolute;
   border-radius: 50%;
-  pointer-events: none; 
+  pointer-events: none;
   transform: translate(-50%, -50%);
   will-change: transform;
-  z-index: 32; 
+  z-index: 32;
 }
 .cursor-dot {
   width: 8px;
   height: 8px;
-  background: black; 
-  z-index: 10001; 
+  background: black;
+  z-index: 10001;
 }
 .cursor-outline {
   width: 50px;
   height: 50px;
-  border: 1px solid black; 
+  border: 1px solid black;
   z-index: 10000;
 }
 .cursor-dot,
-.cursor-outline{
-  position:fixed;
-  top:0;
-  left:0;
-  transform: translate(-50%,-50%);
+.cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
-  z-index:20;
+  z-index: 20;
   pointer-events: none;
 }
-  
-  
+
 /* navbar */
 .navbar-bg {
   /* background: linear-gradient(
@@ -58,15 +60,15 @@ h1, h2, h3, h4, h5, h6 {
   ); */
 }
 .scroll-container {
-  height: 30px; 
-  overflow: hidden; 
-  position: relative; 
+  height: 30px;
+  overflow: hidden;
+  position: relative;
 }
 .scroll {
-  display: inline-block; 
-  position: absolute; 
+  display: inline-block;
+  position: absolute;
   white-space: nowrap;
-  transition: opacity 0.5s ease; 
+  transition: opacity 0.5s ease;
 }
 @keyframes scroll-up {
   0% {
@@ -83,25 +85,24 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-
 /* Page Animation */
 .page-cover {
-  background-color: #333333; 
-  color: #ffffff; 
-  position: fixed; 
-  inset: 0; 
-  z-index: 50; 
-  display: flex; 
-  justify-content: center; 
+  background-color: #333333;
+  color: #ffffff;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 .cover-text {
-  text-align: center; 
+  text-align: center;
   margin-top: 40vh;
 }
 .page-container {
-  position: relative; 
-  overflow: hidden; 
+  position: relative;
+  overflow: hidden;
 }
 
 /* Scrollbar */
@@ -112,31 +113,30 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 5px rgb(156, 156, 156); 
+  box-shadow: inset 5px rgb(156, 156, 156);
   opacity: 0%;
   border-radius: 10px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(70, 70, 70); 
+  background: rgb(70, 70, 70);
   border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #333333; 
+  background: #333333;
 }
-
 
 @keyframes expand-fade {
   0% {
-      transform: scale(0);
-      opacity: 1;
+    transform: scale(0);
+    opacity: 1;
   }
   100% {
-      transform: scale(1.5);
-      opacity: 0; /* Fade out */
+    transform: scale(1.5);
+    opacity: 0; /* Fade out */
   }
 }
 

@@ -1,8 +1,6 @@
 import { useEffect, useState} from 'react'
-import Marco1 from "../assets/Marco.svg"
 import Marco from "../assets/Group 176.svg"
-import TextAnimation from "../utils/textAnimation";
-import { GitHub , Instagram, LinkedIn, ArrowForward, ArrowBack } from '@mui/icons-material';
+import { GitHub , Instagram, LinkedIn, ArrowForward} from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { pageTransitionIn } from "../utils/gsapAnimation";
 import Footer from "../components/Footer";
@@ -138,7 +136,7 @@ const Home = () => {
         <div className="mx-auto w-[95vw] h-[1px] bg-black mb-8"></div>
 
         <div className="ml-24 text-6xl text-start w-[100vw]  mb-24 mt-4" >
-            What I do 
+            My Journey
         </div>
         
         <div className="text-3xl ml-24 w-[70vw] text-wrap leading-relaxed text-left mb-2">
