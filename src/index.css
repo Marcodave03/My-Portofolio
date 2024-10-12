@@ -143,3 +143,35 @@ h6 {
 .blinking-circle {
   animation: expand-fade 3s ease-in-out infinite;
 }
+
+
+/* loading animation */
+@keyframes move {
+  0% {
+      top: -100%;
+  }
+  100% {
+      top: 100%;
+  }
+}
+
+.animate-move {
+  animation: move 1.5s linear infinite;
+}
+
+
+
+
+
+
+@keyframes underline-loading {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}

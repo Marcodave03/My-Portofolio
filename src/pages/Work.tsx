@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { pageTransitionIn } from "../utils/gsapAnimation";
+import Mockup from "../assets/mockup.jpg";
+import Footer from "../components/Footer";
 
 const Work = () => {
   const [activeSection, setActiveSection] = useState(null);
@@ -39,7 +41,8 @@ const Work = () => {
   }, []);
 
   return (
-    <div className="flex">
+    <>
+        <div className="flex">
       <div
         className="fixed top-1/2 right-0 transform -translate-y-1/2 h-[20vw] w-8 bg-black z-10 hover:w-14 transition-all duration-300 ease-in-out"
         onClick={() => handleNavigation("/about")}
@@ -95,15 +98,13 @@ const Work = () => {
         {/* Project 1 Section */}
         <div id="project1" ref={sectionRefs.project1} className="h-screen">
           <h1 className="text-3xl font-bold text-center">Project 1</h1>
-          <p className="text-center mt-4">
-            This is the description for Project 1.
-          </p>
-          <p className="text-center mt-4">
-            This is the description for Project 1.
-          </p>
-          <p className="text-center mt-4">
-            This is the description for Project 1.
-          </p>
+          <div className="flex justify-center mx-auto w-[90vw] mt-4">
+            <img 
+                src={Mockup} 
+                alt="mockup" 
+                className="w-[90vw] h-[80vh]"
+              />
+          </div>
           <p className="text-center mt-4">
             This is the description for Project 1.
           </p>
@@ -112,18 +113,13 @@ const Work = () => {
         {/* Project 2 Section */}
         <div id="project2" ref={sectionRefs.project2} className="h-screen">
           <h1 className="text-3xl font-bold text-center">Project 2</h1>
-          <p className="text-center mt-4">
-            This is the description for Project 2.
-          </p>
-          <p className="text-center mt-4">
-            This is the description for Project 2.
-          </p>
-          <p className="text-center mt-4">
-            This is the description for Project 2.
-          </p>
-          <p className="text-center mt-4">
-            This is the description for Project 2.
-          </p>
+          <div className="flex justify-center mx-auto w-[90vw] mt-4">
+            <img 
+                src={Mockup} 
+                alt="mockup" 
+                className="w-[90vw] h-[80vh]"
+              />
+          </div>
           <p className="text-center mt-4">
             This is the description for Project 2.
           </p>
@@ -132,24 +128,22 @@ const Work = () => {
         {/* Project 3 Section */}
         <div id="project3" ref={sectionRefs.project3} className="h-screen">
           <h1 className="text-3xl font-bold text-center">Project 3</h1>
-          <p className="text-center mt-4">
-            This is the description for Project 3.
-          </p>
-          <p className="text-center mt-4">
-            This is the description for Project 3.
-          </p>
-          <p className="text-center mt-4">
-            This is the description for Project 3.
-          </p>
-          <p className="text-center mt-4">
-            This is the description for Project 3.
-          </p>
+          <div className="flex justify-center mx-auto w-[90vw] mt-4">
+            <img 
+                src={Mockup} 
+                alt="mockup" 
+                className="w-[90vw] h-[80vh]"
+              />
+          </div>
           <p className="text-center mt-4">
             This is the description for Project 3.
           </p>
         </div>
       </div>
     </div>
+      <Footer/>
+    </>
+
   );
 };
 
