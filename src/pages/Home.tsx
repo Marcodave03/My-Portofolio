@@ -26,7 +26,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <div
         className="fixed top-1/2 right-0 transform -translate-y-1/2 h-[20vw] w-8 bg-black z-10 hover:w-14 transition-all duration-300 ease-in-out"
         onClick={() => handleNavigation("/work")}

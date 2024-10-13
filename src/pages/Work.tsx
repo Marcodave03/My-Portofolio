@@ -1,17 +1,21 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, RefObject } from "react";
 import { useNavigate } from "react-router-dom";
 import { pageTransitionIn } from "../utils/gsapAnimation";
-import Mockup from "../assets/mockup.jpg";
 import Footer from "../components/Footer";
+import Mockup from "../assets/mockup.jpg";
+
+type SectionKeys = 'project1' | 'project2' | 'project3';
 
 const Work = () => {
-  const [activeSection, setActiveSection] = useState(null);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-  const sectionRefs = {
-    project1: useRef(null),
-    project2: useRef(null),
-    project3: useRef(null),
+  const sectionRefs: Record<SectionKeys, RefObject<HTMLDivElement>> = {
+    project1: useRef<HTMLDivElement>(null),
+    project2: useRef<HTMLDivElement>(null),
+    project3: useRef<HTMLDivElement>(null),
   };
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleNavigation = (target: string) => {
     const targetText = target.substring(1).toUpperCase() || "HOME";
@@ -22,27 +26,40 @@ const Work = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = Object.keys(sectionRefs);
-      let currentSection = null;
-      for (let section of sections) {
-        const sectionTop = sectionRefs[section].current.offsetTop;
-        const scrollPosition = window.scrollY + 100;
-
-        if (scrollPosition >= sectionTop) {
-          currentSection = section;
-        }
-      }
-      setActiveSection(currentSection);
+      const scrollY = window.scrollY;
+      setScrollPosition(scrollY);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = Object.keys(sectionRefs) as SectionKeys[]; // Assert keys as SectionKeys
+      const scrollPosition = window.scrollY;
+      let currentSection: string | null = null;
+
+      for (const section of sections) {
+        const sectionTop = sectionRefs[section].current?.offsetTop ?? 0; // Use optional chaining
+        if (scrollPosition >= sectionTop - 100) {
+          currentSection = section;
+        }
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [sectionRefs]);
+
   return (
-    <>
-        <div className="flex">
+    <div>
       <div
         className="fixed top-1/2 right-0 transform -translate-y-1/2 h-[20vw] w-8 bg-black z-10 hover:w-14 transition-all duration-300 ease-in-out"
         onClick={() => handleNavigation("/about")}
@@ -51,99 +68,100 @@ const Work = () => {
           <h1 className="text-xl">About</h1>
         </div>
       </div>
-      {/* Sidebar Navigation */}
-      <div
-        className="w-[25vw] h-full fixed top-0 left-0 p-4 overflow-y-auto"
-        style={{ backgroundColor: "rgba(31, 41, 55, 0.2)" }}
-      >
-        <div className="space-y-4 m-14" style={{ paddingLeft: "50px" }}>
-          <h2 className="font-semibold text-lg">Projects</h2>
-          <ul className="space-y-2" style={{ paddingLeft: "20px" }}>
-            <li>
-              <a
-                href="#project1"
-                className={`block cursor-pointer p-2 ${
-                  activeSection === "project1" ? "underline text-red-500" : ""
-                }`}
-              >
-                Project 1
-              </a>
-            </li>
-            <li>
-              <a
-                href="#project2"
-                className={`block cursor-pointer p-2 ${
-                  activeSection === "project2" ? "underline text-red-500" : ""
-                }`}
-              >
-                Project 2
-              </a>
-            </li>
-            <li>
-              <a
-                href="#project3"
-                className={`block cursor-pointer p-2 ${
-                  activeSection === "project3" ? "underline text-red-500" : ""
-                }`}
-              >
-                Project 3
-              </a>
-            </li>
-          </ul>
+      {/* Landing Page */}
+      {/* <div className="absolute animate-up-down top-6 left-80 transform -translate-y-1/2 -translate-x-1/2 z-20">
+        <img
+          src={Laptop}
+          alt="Marco"
+          className="h-auto w-[40vw] opacity-65"
+        />
+      </div> */}
+
+      <div className="h-screen  text-black">
+        <div className="overflow-hidden h-[30vw] relative ">
+            <div
+              className="absolute w-[200vw] text-[16vw] font-bold text-center whitespace-nowrap mt-36 hover:opacity-0"
+              style={{
+                transform: `translateX(${-scrollPosition * 0.9}px)`, 
+              }}
+            >
+              - PROJECTS ----------------------------
+            </div>
+          </div>
+
+          <div className="text-6xl text-start w-[80vw] text-wrap mt-8 ml-48 hover:opacity-100 transition-opacity duration-300">
+            Marco Davincent Dermawan
+          </div>
+      </div>
+
+      <div className="flex">
+        <div
+          className="sidebar h-screen w-[25vw] p-4 border-r-[2px]" style={{borderColor:"#D6D6D6FF"}}>
+          <div className="space-y-1 m-14">
+            <h2 className="font-semibold text-2xl text-black mb-4">Web Development</h2>
+            <ul className="space-y-1">
+              <li>
+                <a
+                  href="#project1"
+                  className={`block cursor-pointer p-2 ${
+                    activeSection === "project1"
+                      ? "text-xl font-bold text-black"
+                      : "text-lg text-gray-400"
+                  }`}
+                >
+                  Project 1
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#project2"
+                  className={`block cursor-pointer p-2 ${
+                    activeSection === "project2"
+                      ? "text-xl font-bold text-black"
+                      : "text-lg text-gray-400"
+                  }`}
+                >
+                  Project 2
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#project3"
+                  className={`block cursor-pointer p-2 ${
+                    activeSection === "project3"
+                      ? "text-xl font-bold text-black"
+                      : "text-lg text-gray-400"
+                  }`}
+                >
+                  Project 3
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Project Sections */}
+        <div className="flex-1">
+          <div id="project1" ref={sectionRefs.project1} className="h-screen">
+            <h2 className="text-3xl">Project 1</h2>
+            <img src={Mockup} alt="mockup" className="w-[90vw] h-[80vh]" />
+          </div>
+          <div id="project2" ref={sectionRefs.project2} className="h-screen">
+            <h2 className="text-3xl">Project 2</h2>
+            <img src={Mockup} alt="mockup" className="w-[90vw] h-[80vh]" />
+          </div>
+          <div id="project3" ref={sectionRefs.project3} className="h-screen">
+            <h2 className="text-3xl">Project 3</h2>
+            <img src={Mockup} alt="mockup" className="w-[90vw] h-[80vh]" />
+          </div>
         </div>
       </div>
 
-      {/* Scrollable Content Section */}
-      <div className="ml-[25vw] w-full h-full overflow-y-auto p-2 m-12">
-        {/* Project 1 Section */}
-        <div id="project1" ref={sectionRefs.project1} className="h-screen">
-          <h1 className="text-3xl font-bold text-center">Project 1</h1>
-          <div className="flex justify-center mx-auto w-[90vw] mt-4">
-            <img 
-                src={Mockup} 
-                alt="mockup" 
-                className="w-[90vw] h-[80vh]"
-              />
-          </div>
-          <p className="text-center mt-4">
-            This is the description for Project 1.
-          </p>
-        </div>
-
-        {/* Project 2 Section */}
-        <div id="project2" ref={sectionRefs.project2} className="h-screen">
-          <h1 className="text-3xl font-bold text-center">Project 2</h1>
-          <div className="flex justify-center mx-auto w-[90vw] mt-4">
-            <img 
-                src={Mockup} 
-                alt="mockup" 
-                className="w-[90vw] h-[80vh]"
-              />
-          </div>
-          <p className="text-center mt-4">
-            This is the description for Project 2.
-          </p>
-        </div>
-
-        {/* Project 3 Section */}
-        <div id="project3" ref={sectionRefs.project3} className="h-screen">
-          <h1 className="text-3xl font-bold text-center">Project 3</h1>
-          <div className="flex justify-center mx-auto w-[90vw] mt-4">
-            <img 
-                src={Mockup} 
-                alt="mockup" 
-                className="w-[90vw] h-[80vh]"
-              />
-          </div>
-          <p className="text-center mt-4">
-            This is the description for Project 3.
-          </p>
-        </div>
+      {/* Footer */}
+      <div ref={footerRef}>
+        <Footer />
       </div>
     </div>
-      <Footer/>
-    </>
-
   );
 };
 

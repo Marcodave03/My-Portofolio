@@ -100,10 +100,12 @@ h6 {
   text-align: center;
   margin-top: 40vh;
 }
-.page-container {
+/* .page-container {
   position: relative;
-  overflow: hidden;
-}
+  overflow: auto; 
+  max-height: 100vh; 
+} */
+
 
 /* Scrollbar */
 ::-webkit-scrollbar {
@@ -174,4 +176,26 @@ h6 {
   100% {
     width: 0%;
   }
+}
+
+
+/* Work */
+@keyframes up-down {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Adjust the up and down distance */
+  }
+}
+
+.animate-up-down {
+  animation: up-down 2s ease-in-out infinite; /* Animation duration and easing */
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh; 
+  overflow-y: auto;
 }
