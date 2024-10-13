@@ -32,7 +32,7 @@ const About = () => {
   }, []);
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <div
         className="fixed top-1/2 right-0 transform -translate-y-1/2 h-[20vw] w-8 bg-black z-10 hover:w-14 transition-all duration-300 ease-in-out"
         onClick={() => handleNavigation("/home")}
@@ -41,6 +41,8 @@ const About = () => {
           <h1 className="text-xl">Marco.</h1>
         </div>
       </div>
+
+
       <div className="overflow-hidden h-[30vw] relative ">
         <div
           className="absolute w-[200vw] text-[16vw] font-bold text-center whitespace-nowrap mt-36 hover:opacity-0"

@@ -17,9 +17,9 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <button
           onClick={() => handleNavigation("/about")}
-          className="relative overflow-hidden text-gray-600 group"
+          className="relative overflow-hidden group"  style={{color:"#333333"}}
         >
-          <span className="text-xl font-bold text-gray-600 block transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
+          <span className="text-xl font-bold block transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"  style={{color:"#333333"}}>
             Marco D.
           </span>
           <span className="text-xl font-bold block absolute inset-0 transition-transform duration-300 transform translate-y-full group-hover:translate-y-0 text-black">
