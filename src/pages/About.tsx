@@ -2,9 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { pageTransitionIn } from "../utils/gsapAnimation";
 import { useState, useEffect } from "react";
 import Marco from "../assets/Group 176.svg";
-import {ArrowForward,} from "@mui/icons-material";
+import { ArrowForward } from "@mui/icons-material";
 import Experience from "./Experience";
 import Footer from "../components/Footer";
+import CV from "../assets/CV - Marco Davincent Dermawan.pdf";
 
 const About = () => {
   const [isVisible] = useState(true);
@@ -42,18 +43,16 @@ const About = () => {
         </div>
       </div>
 
-
       <div className="overflow-hidden h-[30vw] relative ">
         <div
           className="absolute w-[200vw] text-[16vw] font-bold text-center whitespace-nowrap mt-36 hover:opacity-0"
           style={{
-            transform: `translateX(${-scrollPosition * 0.9}px)`, 
+            transform: `translateX(${-scrollPosition * 0.9}px)`,
           }}
         >
           - ABOUT ME ----------------------------
         </div>
       </div>
-
 
       <div className="text-6xl text-start w-[100vw] text-wrap mt-8 ml-48 hover:opacity-100 transition-opacity duration-300">
         Marco Davincent Dermawan
@@ -98,7 +97,12 @@ const About = () => {
             performance, user experience, and scalable architecture.
           </div>
           <div className="flex">
-            <div className="relative w-64 h-12 border-2 border-black overflow-hidden group cursor-pointer rounded-full mt-5 mr-3">
+            <div
+              className="relative w-64 h-12 border-2 border-black overflow-hidden group cursor-pointer rounded-full mt-5 mr-3"
+              onClick={() => {
+                window.location.href = "mailto:marcodave03@gmail.com";
+              }}
+            >
               <div className="absolute top-0 left-0 h-full w-0 bg-blue-300 transition-all duration-500 group-hover:w-full"></div>
               <div className="relative z-10 flex items-center justify-center h-full text-black">
                 <span className="text-2xl font-normal">Get in touch</span>
@@ -107,7 +111,16 @@ const About = () => {
                 <ArrowForward fontSize="medium" sx={{ color: "white" }} />
               </div>
             </div>
-            <div className="relative w-20 h-12 border-2 border-black overflow-hidden group cursor-pointer rounded-full mt-5">
+            <div
+              className="relative w-20 h-12 border-2 border-black overflow-hidden group cursor-pointer rounded-full mt-5"
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = CV;
+                link.download = "Marco Davincent Dermawan.pdf";
+                link.target = "_blank";
+                link.click();
+              }}
+            >
               <div className="absolute top-0 left-0 h-full w-0 bg-blue-300 transition-all duration-500 group-hover:w-full"></div>
               <div className="relative z-10 flex items-center justify-center h-full text-black">
                 <span className="text-2xl font-normal">CV</span>

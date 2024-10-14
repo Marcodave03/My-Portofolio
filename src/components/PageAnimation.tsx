@@ -15,7 +15,6 @@ const PageTransition: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     if (!animationInProgress.current) {
       animationInProgress.current = true;
-
       setNextContent(children);
 
       pageTransitionOut(() => {

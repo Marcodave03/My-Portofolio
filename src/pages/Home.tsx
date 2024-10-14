@@ -6,6 +6,7 @@ import { pageTransitionIn } from "../utils/gsapAnimation";
 import Footer from "../components/Footer";
 import Mockup from "../assets/mockup.jpg";
 import { IoIosArrowDown } from "react-icons/io";
+import CV from "../assets/CV - Marco Davincent Dermawan.pdf";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -57,17 +58,26 @@ const Home = () => {
             <GitHub
               fontSize="large"
               className="w-12 h-12 transform scale-125 hover:scale-150 ease-in-out hover:text-purple-900 transition-transform duration-1000 cursor-pointer"
-              onClick={() => window.open("https://github.com", "_blank")}
+              onClick={() =>
+                window.open("https://github.com/Marcodave03", "_blank")
+              }
             />
             <Instagram
               fontSize="large"
               className="w-12 h-12 transform scale-125 hover:scale-150 ease-in-out hover:text-fuchsia-700 transition-transform  duration-1000 cursor-pointer"
-              onClick={() => window.open("https://instagram.com", "_blank")}
+              onClick={() =>
+                window.open("https://www.instagram.com/marcodave_/", "_blank")
+              }
             />
             <LinkedIn
               fontSize="large"
               className="w-12 h-12 transform scale-125 hover:scale-150 ease-in-out hover:text-blue-700 transition-transform  duration-1000 cursor-pointer"
-              onClick={() => window.open("https://linkedin.com", "_blank")}
+              onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/in/marcodavincent/",
+                  "_blank"
+                )
+              }
             />
           </div>
         </div>
@@ -95,7 +105,12 @@ const Home = () => {
         <div className="md:text-6xl sm:text-sm col-span-2 text-start w-[30vw] text-wrap mb-2 sm:mb-0 lg:ml-6 sm:ml-4 z-10">
           Web Developer & Digital Designer
           <div className="flex">
-            <div className="relative w-64 h-12 border-2 border-black overflow-hidden group cursor-pointer rounded-full mt-5 mr-3">
+            <div
+              className="relative w-64 h-12 border-2 border-black overflow-hidden group cursor-pointer rounded-full mt-5 mr-3"
+              onClick={() => {
+                window.location.href = "mailto:marcodave03@gmail.com";
+              }}
+            >
               <div className="absolute top-0 left-0 h-full w-0 bg-blue-300 transition-all duration-500 group-hover:w-full"></div>
               <div className="relative z-10 flex items-center justify-center h-full text-black">
                 <span className="text-2xl font-normal">Get in touch</span>
@@ -104,7 +119,17 @@ const Home = () => {
                 <ArrowForward fontSize="medium" sx={{ color: "white" }} />
               </div>
             </div>
-            <div className="relative w-20 h-12 border-2 border-black overflow-hidden group cursor-pointer rounded-full mt-5">
+
+            <div
+              className="relative w-20 h-12 border-2 border-black overflow-hidden group cursor-pointer rounded-full mt-5"
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = CV;
+                link.download = "Marco Davincent Dermawan.pdf";
+                link.target = "_blank";
+                link.click();
+              }}
+            >
               <div className="absolute top-0 left-0 h-full w-0 bg-blue-300 transition-all duration-500 group-hover:w-full"></div>
               <div className="relative z-10 flex items-center justify-center h-full text-black">
                 <span className="text-2xl font-normal">CV</span>
@@ -143,18 +168,21 @@ const Home = () => {
       </div>
 
       <div className="text-4xl col-span-2 text-right w-[100vw] mb-4 mt-14 pr-24 z-20 group">
-      <span className="inline-flex items-center relative group-hover:cursor-pointer">
-        <ArrowForward
-          fontSize="large"
-          sx={{ color: 'black' }}
-          className="transition-transform duration-300 transform group-hover:-rotate-45 z-30"
-        />
-        <span className="ml-2 relative">
-          All Projects
-          <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+        <span className="inline-flex items-center relative group-hover:cursor-pointer">
+          <ArrowForward
+            fontSize="large"
+            sx={{ color: "black" }}
+            className="transition-transform duration-300 transform group-hover:-rotate-45 z-30"
+          />
+          <span
+            className="ml-2 relative"
+            onClick={() => handleNavigation("/work")}
+          >
+            All Projects
+            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform  transition-transform duration-300 scale-x-100"></span>
+          </span>
         </span>
-      </span>
-    </div>
+      </div>
 
       <div className="mx-auto w-[95vw] h-[1px] bg-black mb-8"></div>
 
@@ -174,8 +202,21 @@ const Home = () => {
         craft seamless and scalable digital experiences that make an impact."
       </div>
 
-      <div className="text-4xl col-span-2 text-right w-[100vw] mb-64 mt-2 underline pr-24">
-        <ArrowForward fontSize="large" sx={{ color: "black" }} /> About Me
+      <div className="text-4xl col-span-2 text-right w-[100vw] mt-14 pr-24 z-20 group mb-64">
+        <span className="inline-flex items-center relative group-hover:cursor-pointer">
+          <ArrowForward
+            fontSize="large"
+            sx={{ color: "black" }}
+            className="transition-transform duration-300 transform group-hover:-rotate-45 z-30"
+          />
+          <span
+            className="ml-2 relative"
+            onClick={() => handleNavigation("/about")}
+          >
+            About Me
+            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform  transition-transform duration-300 scale-x-100"></span>
+          </span>
+        </span>
       </div>
 
       <Footer />
