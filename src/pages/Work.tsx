@@ -141,18 +141,18 @@ const Work = () => {
         </div>
 
         {/* Project Sections */}
-        <div className="flex-1">
-          <div id="project1" ref={sectionRefs.project1} className="h-screen">
+        <div className="flex-1 mt-20">
+          <div id="project1" ref={sectionRefs.project1} className="lg:h-screen mt-4 lg:mt-0">
             <h2 className="text-3xl">Project 1</h2>
-            <img src={Mockup} alt="mockup" className="w-[90vw] h-[80vh]" />
+            <img src={Mockup} alt="mockup" className="w-[100vw] lg:w-[90vw] h-auto lg:h-[80vh]" />
           </div>
-          <div id="project2" ref={sectionRefs.project2} className="h-screen">
+          <div id="project2" ref={sectionRefs.project2} className="lg:h-screen mt-4 lg:mt-0">
             <h2 className="text-3xl">Project 2</h2>
-            <img src={Mockup} alt="mockup" className="w-[90vw] h-[80vh]" />
+            <img src={Mockup} alt="mockup" className="w-[100vw] lg:w-[90vw] h-auto lg:h-[80vh]" />
           </div>
-          <div id="project3" ref={sectionRefs.project3} className="h-screen">
+          <div id="project3" ref={sectionRefs.project3} className="lg:h-screen mt-4 lg:mt-0">
             <h2 className="text-3xl">Project 3</h2>
-            <img src={Mockup} alt="mockup" className="w-[90vw] h-[80vh]" />
+            <img src={Mockup} alt="mockup" className="w-[100vw] lg:w-[90vw] h-auto lg:h-[80vh]" />
           </div>
         </div>
       </div>
