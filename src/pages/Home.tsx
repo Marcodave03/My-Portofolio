@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Marco from "../assets/Group 176.svg";
+import Marco from "../assets/Marcocolor.svg";
 import { GitHub, Instagram, LinkedIn, ArrowForward } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { pageTransitionIn } from "../utils/gsapAnimation";
@@ -28,33 +28,26 @@ const Home = () => {
 
   return (
     <div className="overflow-hidden">
-      <div
-        className="fixed top-1/2 right-0 transform -translate-y-1/2 h-[20vw] w-8 bg-black z-10 hover:w-14 transition-all duration-300 ease-in-out"
-        onClick={() => handleNavigation("/work")}
-      >
-        <div className="flex items-center justify-center h-full text-white rotate-90">
-          <h1 className="text-xl">Projects</h1>
-        </div>
-      </div>
       <div className="h-16 mx-auto"></div>
       <div className="flex flex-col sm:flex-row items-center justify-center z-10">
-        <div className="md:text-6xl sm:text-sm col-span-2 text-right w-[30vw] text-wrap mb-2 sm:mb-0 sm:mr-4 z-10">
-          <div className="mr-6">Marco Davincent </div>
+        <div className="col-span-2 text-wrap mb-2 z-10 text-start lg:text-right w-[100vw] lg:w-[30vw]">
+          <div className="text-6xl mr-0 lg:mr-6 ml-4 lg:ml-0 mt-32 lg:mt-0">Marco Davincent </div>
 
-          <div className="md:text-lg sm:text-sm text-right mr-6">
+          <div className="text-2xl lg:text-lg text-start ml-6 lg:ml-0 lg:text-right lg:mr-6 mt-10 lg:mt-0">
             Tangerang, Indonesia
           </div>
 
-          <div className="flex items-center justify-end text-right mr-6">
+          <div className="flex items-center justify-start lg:justify-end text-start lg:text-right mr-0 lg:mr-6 mt-2 lg:mt-0">
             <div className="relative w-5 h-5 mr-2">
               <div className="bg-green-200 w-full h-full rounded-full blinking-circle opacity-70 flex items-center justify-center"></div>
               <div className="absolute bg-green-500 w-2 h-2 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
             </div>
-            <div className="md:text-lg sm:text-sm">
+            <div className="text-xl lg:text-lg">
               Available for full-time position
             </div>
           </div>
-          <div className="flex items-center justify-end text-right mr-8 mt-8 space-x-4">
+          
+          <div className="flex items-center justify-start lg:justify-end text-start lg:text-right ml-8 lg:ml-4 mr-0 lg:mr-8 mt-8 space-x-4">
             <GitHub
               fontSize="large"
               className="w-12 h-12 transform scale-125 hover:scale-150 ease-in-out hover:text-purple-900 transition-transform duration-1000 cursor-pointer"
@@ -83,26 +76,25 @@ const Home = () => {
         </div>
 
         <div
-          className={`col-span-8 w-[40vw] h-[40vw] border-2 border-black rounded-full bg-transparent flex items-center justify-center mb-2 sm:mb-0 transition-transform duration-500 ease-in-out 
-                ${isVisible ? "scale-100" : "scale-110"}`}
+          className={`col-span-8 w-[40vw] h-[40vw] border-2 border-black rounded-full bg-transparent flex items-center justify-center transition-transform duration-500 ease-in-out 
+                ${isVisible ? "scale-100" : "scale-110"} mb-2 hidden lg:flex `}
         >
           <div
             className={`w-[97%] h-[97%] bg-black rounded-full delay-200 transition-transform duration-500 ease-in-out 
                         ${isVisible ? "scale-100" : "scale-0"}`}
           ></div>
-
           <div className="absolute inset-0 flex items-end justify-center">
             <img
               src={Marco}
               alt="Marco"
-              className={`mb-2 w-[40vw] h-auto delay-200 transition-transform duration-700 ease-in-out ${
+              className={`mb-8 w-[40vw] h-auto delay-200 transition-transform duration-700 ease-in-out ${
                 isVisible ? "translate-y-20" : "translate-y-full"
               }`}
             />
           </div>
         </div>
 
-        <div className="md:text-6xl sm:text-sm col-span-2 text-start w-[30vw] text-wrap mb-2 sm:mb-0 lg:ml-6 sm:ml-4 z-10">
+        <div className="text-5xl lg:text-6xl col-span-2 text-start text-wrap mb-2 ml-4 lg:ml-6 z-10 mt-72 lg:mt-0 w-[350px] lg:w-[30vw]">
           Web Developer & Digital Designer
           <div className="flex">
             <div
@@ -139,7 +131,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="mt-64 mb-2 text-gray-600 text-lg flex items-center justify-center">
+      <div className="mt-10 lg:mt-64 mb-2 text-gray-600 text-lg flex items-center justify-center">
         scroll
       </div>
       <div className="flex items-center justify-center ">
@@ -151,23 +143,33 @@ const Home = () => {
         <IoIosArrowDown color="gray" size={50} />
       </div>
 
-      <div className="ml-14 text-6xl col-span-2 text-start w-[100vw] text-wrap mb-4 z-10 mt-64">
+      <div className="ml-4 lg:ml-14 text-6xl col-span-2 text-start w-[100vw] text-wrap mb-4 z-10 mt-64">
         Code. Create. Innovate
       </div>
       <div className="mx-auto w-[95vw] h-[1px] bg-black mb-8"></div>
-      <div className="flex justify-center mx-auto w-[90vw]">
-        <img src={Mockup} alt="mockup" className="m-4 w-[44vw] h-auto" />
-        <img src={Mockup} alt="mockup" className="m-4 w-[44vw] h-auto" />
+
+{/* Flex container for images */}
+      <div className="flex flex-col sm:flex-row justify-center mx-auto w-[90vw]">
+        <img
+          src={Mockup}
+          alt="mockup"
+          className="mb-2 lg:m-4 w-full sm:w-[44vw] h-auto"
+        />
+        <img
+          src={Mockup}
+          alt="mockup"
+          className="lg:m-4 w-full sm:w-[44vw] h-auto"
+        />
       </div>
       <div className="flex justify-center mx-auto w-[90vw] mt-4">
         <img
           src={Mockup}
           alt="mockup"
-          className="w-[90vw] h-[30vw] object-cover"
+          className="w-full sm:w-[90vw] h-auto lg:h-[30vw] object-cover"
         />
       </div>
 
-      <div className="text-4xl col-span-2 text-right w-[100vw] mb-4 mt-14 pr-24 z-20 group">
+      <div className="text-4xl col-span-2 text-start lg:text-right w-[100vw] mb-4 mt-14 pr-24 z-20 group ml-4 lg:ml-0">
         <span className="inline-flex items-center relative group-hover:cursor-pointer">
           <ArrowForward
             fontSize="large"
@@ -186,11 +188,11 @@ const Home = () => {
 
       <div className="mx-auto w-[95vw] h-[1px] bg-black mb-8"></div>
 
-      <div className="ml-24 text-6xl text-start w-[100vw]  mb-24 mt-4">
+      <div className="ml-4 lg:ml-24 text-6xl text-start w-[100vw] mb-8 lg:mb-24 mt-24 lg:mt-4">
         My Journey
       </div>
 
-      <div className="text-3xl ml-24 w-[70vw] text-wrap leading-relaxed text-left mb-2">
+      <div className="text-xl lg:text-3xl ml-4 lg:ml-24 w-[90vw] lg:w-[70vw] text-wrap leading-relaxed text-left mb-2">
         "As a <strong className="font-bold">fullstack developer</strong> , I
         turn complex problems into intuitive solutions, blending creativity with
         technical expertise. From{" "}
@@ -202,7 +204,7 @@ const Home = () => {
         craft seamless and scalable digital experiences that make an impact."
       </div>
 
-      <div className="text-4xl col-span-2 text-right w-[100vw] mt-14 pr-24 z-20 group mb-64">
+      <div className="text-4xl lg:col-span-2 text-start lg:text-right w-[100vw] mt-14 lg:pr-24 z-20 group mb-64 ml-4 lg:ml-0">
         <span className="inline-flex items-center relative group-hover:cursor-pointer">
           <ArrowForward
             fontSize="large"

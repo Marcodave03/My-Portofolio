@@ -61,7 +61,7 @@ const Work = () => {
   return (
     <div>
       <div
-        className="fixed top-1/2 right-0 transform -translate-y-1/2 h-[20vw] w-8 bg-black z-10 hover:w-14 transition-all duration-300 ease-in-out"
+        className="fixed top-1/2 right-0 transform -translate-y-1/2 h-[20vw] w-8 bg-black z-10 hover:w-14 transition-all duration-300 ease-in-out hidden lg:block"
         onClick={() => handleNavigation("/about")}
       >
         <div className="flex items-center justify-center h-full text-white rotate-90">
@@ -77,7 +77,7 @@ const Work = () => {
         />
       </div> */}
 
-      <div className="h-screen  text-black">
+      <div className="h-screen  text-black hidden lg:block">
         <div className="overflow-hidden h-[30vw] relative ">
             <div
               className="absolute w-[200vw] text-[16vw] font-bold text-center whitespace-nowrap mt-36 hover:opacity-0"
@@ -96,7 +96,7 @@ const Work = () => {
 
       <div className="flex">
         <div
-          className="sidebar h-screen w-[25vw] p-4 border-r-[2px]" style={{borderColor:"#D6D6D6FF"}}>
+          className="sidebar h-screen w-[25vw] p-4 border-r-[2px] hidden lg:flex" style={{borderColor:"#D6D6D6FF"}}>
           <div className="space-y-1 m-14">
             <h2 className="font-semibold text-2xl text-black mb-4">Web Development</h2>
             <ul className="space-y-1">

@@ -13,12 +13,17 @@ const Footer = () => {
   };
 
   return (
-    <div className="flex bg-gray-200 text-black p-4 h-[75vh] justify-between">
-      <div className="w-[75vw] mt-14">
-        <h2 className="ml-14 text-4xl mb-8">Let's Collaborate</h2>
-        <div className="ml-14 flex">
+    <div className="flex flex-col lg:flex-row bg-gray-200 text-black lg:p-4 h-auto justify-between">
+      <div className="w-[100vw] lg:w-[75vw] mt-14">
+        <h2 className="ml-4 lg:ml-14 text-4xl mb-8">Let's Collaborate</h2>
+
+
+
+        <div className="ml-4 lg:ml-14 flex">
+
+
           <div
-            className="relative w-64 h-12 border-2 border-black overflow-hidden group cursor-pointer rounded-full mt-5 mr-3"
+            className="relative w-64 h-12 border-2 border-black overflow-hidden group cursor-pointer rounded-full mt-5 lg:mr-3"
             onClick={() => {
               window.location.href = "mailto:marcodave03@gmail.com";
             }}
@@ -31,6 +36,8 @@ const Footer = () => {
               <ArrowForward fontSize="medium" sx={{ color: "white" }} />
             </div>
           </div>
+
+
           <div
             className="relative w-20 h-12 border-2 border-black overflow-hidden group cursor-pointer rounded-full mt-5"
             onClick={() => {
@@ -46,13 +53,23 @@ const Footer = () => {
               <span className="text-2xl font-normal">CV</span>
             </div>
           </div>
+
+
+
+
+
         </div>
+
+
+
+
       </div>
+      <div>
       <div className="w-[10vw] mt-14">
         <ul className="flex flex-col space-y-4">
           <li>
             <div
-              className="text-2xl hover:text-gray-400 hover:cursor-pointer"
+              className="text-2xl ml-4 lg:ml-0 hover:text-gray-400 hover:cursor-pointer"
               onClick={() => handleNavigation("/home")}
             >
               Home
@@ -60,7 +77,7 @@ const Footer = () => {
           </li>
           <li>
             <div
-              className="text-2xl hover:text-gray-400 hover:cursor-pointer"
+              className="text-2xl ml-4 lg:ml-0 hover:text-gray-400 hover:cursor-pointer"
               onClick={() => handleNavigation("/work")}
             >
               Projects
@@ -68,7 +85,7 @@ const Footer = () => {
           </li>
           <li>
             <div
-              className="text-2xl hover:text-gray-400 hover:cursor-pointer"
+              className="text-2xl ml-4 lg:ml-0 hover:text-gray-400 hover:cursor-pointer"
               onClick={() => handleNavigation("/about")}
             >
               About
@@ -76,11 +93,11 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <div className="w-[15vw] mt-14">
+      <div className="w-[100vw] lg:w-[15vw] mt-14">
         <ul className="flex flex-col space-y-4">
           <li>
             <div
-              className="text-2xl hover:text-gray-400 hover:cursor-pointer"
+              className="text-2xl ml-4 lg:ml-0 hover:text-gray-400 hover:cursor-pointer"
               onClick={() =>
                 window.open("https://www.instagram.com/marcodave_/", "_blank")
               }
@@ -90,7 +107,7 @@ const Footer = () => {
           </li>
           <li>
             <div
-              className="text-2xl hover:text-gray-400 hover:cursor-pointer"
+              className="text-2xl ml-4 lg:ml-0 hover:text-gray-400 hover:cursor-pointer"
               onClick={() =>
                 window.open(
                   "https://www.linkedin.com/in/marcodavincent/",
@@ -103,7 +120,7 @@ const Footer = () => {
           </li>
           <li>
             <div
-              className="text-2xl hover:text-gray-400 hover:cursor-pointer"
+              className="text-2xl ml-4 lg:ml-0 hover:text-gray-400 hover:cursor-pointer mb-14"
               onClick={() =>
                 window.open("https://github.com/Marcodave03", "_blank")
               }
@@ -113,6 +130,8 @@ const Footer = () => {
           </li>
         </ul>
       </div>
+      </div>
+
     </div>
   );
 };

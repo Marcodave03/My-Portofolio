@@ -29,7 +29,7 @@ function AnimatedRoutes() {
   const location = useLocation();
   return (
     <>
-      <ScrollToTop />
+      <ScrollToTop/>
       <PageAnimation>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />

@@ -127,8 +127,8 @@ const Experience: React.FC = () => {
                   : "0px",
               }}
             >
-              <div className="p-4">
-                <div className="ml-4">
+              <div className="lg:p-4">
+                <div className="lg:ml-4">
                   <div className="text-start p-4 flex flex-wrap justify-center">
                     {/* Each technology box */}
                     <div className="flex items-center m-4 p-4 border border-black rounded-lg W-[10VW] justify-center">
@@ -323,20 +323,20 @@ const Experience: React.FC = () => {
             >
               <div className="ml-4">
                 <div className="text-start p-4">
-                  <div className="text-2xl text-black mb-3 underline">
+                  <div className="text-lg lg:text-2xl text-black mb-3 underline">
                     Top 10 Winners Hedera Hello Future Hackaton [2024]
                   </div>
-                  <div className="text-2xl text-black mb-3 underline">
+                  <div className="text-lg lg:text-2xl text-black mb-3 underline">
                     8th ICITISEE 2024 Publication [2024]
                   </div>
-                  <div className="text-2xl text-black mb-3 underline">
+                  <div className="text-lg lg:text-2xl text-black mb-3 underline">
                     B-Startion Finalist [2022]
                   </div>
-                  <div className="text-2xl text-black mb-3 underline">
+                  <div className="text-lg lg:text-2xl text-black mb-3 underline">
                     Compfest Traveloka Finalist [2021]
                   </div>
 
-                  <div className="text-2xl text-black mb-3 mt-12">
+                  <div className="text-lg lg:text-2xl text-black mb-3 mt-12">
                     Other Participation
                   </div>
                   <div className="text-lg text-gray-500 mb-1 mt-1">
