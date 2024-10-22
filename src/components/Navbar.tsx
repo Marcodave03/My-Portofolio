@@ -20,10 +20,10 @@ const Navbar: React.FC = () => {
           className="relative overflow-hidden group"  style={{color:"#333333"}}
         >
           <span className="text-xl font-bold block transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"  style={{color:"#333333"}}>
-            Marco D.
+            M D.
           </span>
           <span className="text-xl font-bold block absolute inset-0 transition-transform duration-300 transform translate-y-full group-hover:translate-y-0 text-black">
-            Marco D.
+            M D.
           </span>
         </button>
 
