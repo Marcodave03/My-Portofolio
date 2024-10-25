@@ -79,8 +79,8 @@ const Work = () => {
     };
   }, [sectionRefs]);
 
-  const scrollToSection = (sectionId: string) => {
-    const section = sectionRefs[sectionId].current;
+  const scrollToSection = (sectionId: SectionKeys) => {
+    const section = sectionRefs[sectionId].current as HTMLDivElement | null; 
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
@@ -89,7 +89,7 @@ const Work = () => {
   useEffect(() => {
     const handleScroll = (event: WheelEvent) => {
       const sections = Object.keys(sectionRefs) as SectionKeys[];
-      const scrollDirection = event.deltaY > 0; // true if scrolling down
+      const scrollDirection = event.deltaY > 0; 
   
       const currentSectionIndex = sections.findIndex(
         (section) => section === activeSection
