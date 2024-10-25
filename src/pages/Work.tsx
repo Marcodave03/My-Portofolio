@@ -11,11 +11,11 @@ import BXplore from "../assets/Mockup BExplore.png";
 import HealthyGood from "../assets/Mockup Healthygoods.png"
 
 
-type SectionKeys = 'project1' | 'project2' | 'project3' | 'project4' | 'project5' | 'project6' | 'project7';
+type SectionKeys = 'project1' | 'project2' | 'project3' | 'project4' | 'project5' | 'project6' | 'project7'| 'project8';
 
 const Work = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
-  const footerRef = useRef<HTMLDivElement>(null);
+  // const footerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const sectionRefs: Record<SectionKeys, RefObject<HTMLDivElement>> = {
     project1: useRef<HTMLDivElement>(null),
@@ -25,6 +25,7 @@ const Work = () => {
     project5: useRef<HTMLDivElement>(null),
     project6: useRef<HTMLDivElement>(null),
     project7: useRef<HTMLDivElement>(null),
+    project8: useRef<HTMLDivElement>(null),
   };
   const [scrollPosition, setScrollPosition] = useState(0);
   const projectNames = [
@@ -78,6 +79,44 @@ const Work = () => {
     };
   }, [sectionRefs]);
 
+  const scrollToSection = (sectionId: SectionKeys) => {
+    const section = sectionRefs[sectionId].current as HTMLDivElement | null; 
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = (event: WheelEvent) => {
+      const sections = Object.keys(sectionRefs) as SectionKeys[];
+      const scrollDirection = event.deltaY > 0; 
+  
+      const currentSectionIndex = sections.findIndex(
+        (section) => section === activeSection
+      );
+  
+      if (scrollDirection) {
+        if (currentSectionIndex < sections.length) {
+          const nextSection = sections[currentSectionIndex + 1];
+          scrollToSection(nextSection);
+        }else{
+          return;
+        }
+      } else {
+        if (currentSectionIndex >= 0) {
+          const previousSection = sections[currentSectionIndex - 1];
+          scrollToSection(previousSection);
+        }
+      }
+    };
+  
+    window.addEventListener('wheel', handleScroll, { passive: false });
+  
+    return () => {
+      window.removeEventListener('wheel', handleScroll);
+    };
+  }, [activeSection]);
+
   return (
     <div>
       <div
@@ -129,31 +168,31 @@ const Work = () => {
         {/* Project Sections */}
         <div className="flex-1 mt-20">
           <div id="project1" ref={sectionRefs.project1} className="mt-4 lg:mt-0 h-screen">
-            <img src={Streamverse} alt="Streamverse mockup" className="w-[90vw] h-[100vh] object-cover" />
+            <img src={Streamverse} alt="Streamverse mockup" className="w-[100vw] h-[100vh] object-cover" />
           </div>
           <div id="project2" ref={sectionRefs.project2} className="mt-4 lg:mt-0 h-screen">
-            <img src={NusaTravel} alt="NusaTravel mockup" className="w-[90vw] h-[100vh] object-cover" />
+            <img src={NusaTravel} alt="NusaTravel mockup" className="w-[100vw] h-[100vh] object-cover" />
           </div>
           <div id="project3" ref={sectionRefs.project3} className="mt-4 lg:mt-0 h-screen">
-            <img src={CareerSpot} alt="CareerSpot mockup" className="w-[90vw] h-[100vh] object-cover" />
+            <img src={CareerSpot} alt="CareerSpot mockup" className="w-[100vw] h-[100vh] object-cover" />
           </div>
           <div id="project4" ref={sectionRefs.project4} className="mt-4 lg:mt-0 h-screen">
-            <img src={NuatTime} alt="NuatTime mockup" className="w-[90vw] h-[100vh] object-cover" />
+            <img src={NuatTime} alt="NuatTime mockup" className="w-[100vw] h-[100vh] object-cover" />
           </div>
           <div id="project5" ref={sectionRefs.project5} className="mt-4 lg:mt-0 h-screen">
-            <img src={ImagineCup} alt="ImagineCup mockup" className="w-[90vw] h-[100vh] object-cover" />
+            <img src={ImagineCup} alt="ImagineCup mockup" className="w-[100vw] h-[100vh] object-cover" />
           </div>
           <div id="project6" ref={sectionRefs.project6} className="mt-4 lg:mt-0 h-screen">
-            <img src={BXplore} alt="BXplore mockup" className="w-[90vw] h-[100vh] object-cover" />
+            <img src={BXplore} alt="BXplore mockup" className="w-[100vw] h-[100vh] object-cover" />
           </div>
           <div id="project7" ref={sectionRefs.project7} className="mt-4 lg:mt-0 h-screen">
-            <img src={HealthyGood} alt="HealthyGood mockup" className="w-[90vw] h-[100vh] object-cover" />
+            <img src={HealthyGood} alt="HealthyGood mockup" className="w-[100vw] h-[100vh] object-cover" />
           </div>
         </div>
       </div>
 
       {/* Footer */}
-      <div ref={footerRef}>
+      <div id="project8" ref={sectionRefs.project8}>
         <Footer />
       </div>
     </div>
