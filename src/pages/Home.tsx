@@ -4,9 +4,12 @@ import { GitHub, Instagram, LinkedIn, ArrowForward } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { pageTransitionIn } from "../utils/gsapAnimation";
 import Footer from "../components/Footer";
-import Mockup from "../assets/mockup.jpg";
 import { IoIosArrowDown } from "react-icons/io";
 import CV from "../assets/CV - Marco Davincent Dermawan.pdf";
+import Streamverse from "../assets/Macbook Streamverse.png";
+import BXplore from "../assets/Mockup BExplore.png";
+import ImagineCup from "../assets/Mockup Imaginecup.png";
+
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -151,19 +154,19 @@ const Home = () => {
 {/* Flex container for images */}
       <div className="flex flex-col sm:flex-row justify-center mx-auto w-[90vw]">
         <img
-          src={Mockup}
+          src={ImagineCup}
           alt="mockup"
           className="mb-2 lg:m-4 w-full sm:w-[44vw] h-auto"
         />
         <img
-          src={Mockup}
+          src={BXplore}
           alt="mockup"
           className="lg:m-4 w-full sm:w-[44vw] h-auto"
         />
       </div>
       <div className="flex justify-center mx-auto w-[90vw] mt-4">
         <img
-          src={Mockup}
+          src={Streamverse}
           alt="mockup"
           className="w-full sm:w-[90vw] h-auto lg:h-[30vw] object-cover"
         />
