@@ -194,7 +194,7 @@ const Projects: React.FC = () => {
                 {project.description}
               </div>
             </div>
-            <div className="p-5 bg-gray-500 bg-opacity-30 rounded-lg">
+            <div className="p-5 bg-gray-300 bg-opacity-60 rounded-lg">
               <img className="w-[73vw] rounded-lg" src={project.image} alt="" />
             </div>
 
@@ -240,11 +240,11 @@ const Projects: React.FC = () => {
               <div className="flex flex-wrap">
                 {project.gallery.map((image, index) => (
                   <div
-                    className="p-1 m-1 bg-gray-500 bg-opacity-30 rounded-lg"
+                    className="p-2 m-1 bg-gray-300 bg-opacity-60 rounded-lg"
                     key={index}
                   >
                     <img
-                      className="w-[30vw] rounded-lg"
+                      className="w-auto rounded-lg"
                       src={image}
                       alt={`Project ${index + 1}`}
                     />

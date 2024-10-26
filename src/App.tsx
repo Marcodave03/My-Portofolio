@@ -13,6 +13,7 @@ import Projects from "./pages/Projects";
 import BubbleBackground from "./background/AnimatedBackground";
 import Cursor from "./components/Cursor";
 import ScrollToTop from "./components/ScrollToTop";
+import NotFound from './pages/404';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function AnimatedRoutes() {
           <Route path="/about" element={<About />} />
           <Route path="/work" element={<Work />} />
           <Route path="/project/:projectId" element={<Projects />} />
+          <Route path="*" element={<NotFound/>} /> 
         </Routes>
       </PageAnimation>
     </>
