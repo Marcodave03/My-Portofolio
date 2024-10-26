@@ -8,10 +8,17 @@ import ImagineCup from "../assets/Mockup Imaginecup.png";
 import NuatTime from "../assets/Macbook Nuattime.png";
 import NusaTravel from "../assets/Macbook Nusatravel.png";
 import BXplore from "../assets/Mockup BExplore.png";
-import HealthyGood from "../assets/Mockup Healthygoods.png"
+import HealthyGood from "../assets/Mockup Healthygoods.png";
 
-
-type SectionKeys = 'project1' | 'project2' | 'project3' | 'project4' | 'project5' | 'project6' | 'project7'| 'project8';
+type SectionKeys =
+  | "project1"
+  | "project2"
+  | "project3"
+  | "project4"
+  | "project5"
+  | "project6"
+  | "project7"
+  | "project8";
 
 const Work = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -29,13 +36,13 @@ const Work = () => {
   };
   const [scrollPosition, setScrollPosition] = useState(0);
   const projectNames = [
-    { id: 'project1', name: 'Streamverse' },
-    { id: 'project2', name: 'NusaTravel' },
-    { id: 'project3', name: 'CareerSpot' },
-    { id: 'project4', name: 'NuatTime' },
-    { id: 'project5', name: 'PreForm' },
-    { id: 'project6', name: 'BXplore' },
-    { id: 'project7', name: 'HealthyGood' },
+    { id: "project1", name: "Streamverse" },
+    { id: "project2", name: "NusaTravel" },
+    { id: "project3", name: "CareerSpot" },
+    { id: "project4", name: "NuatTime" },
+    { id: "project5", name: "PreForm" },
+    { id: "project6", name: "BXplore" },
+    { id: "project7", name: "HealthyGood" },
   ];
 
   const handleNavigation = (target: string) => {
@@ -80,26 +87,26 @@ const Work = () => {
   }, [sectionRefs]);
 
   const scrollToSection = (sectionId: SectionKeys) => {
-    const section = sectionRefs[sectionId].current as HTMLDivElement | null; 
+    const section = sectionRefs[sectionId].current as HTMLDivElement | null;
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      section.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   useEffect(() => {
     const handleScroll = (event: WheelEvent) => {
       const sections = Object.keys(sectionRefs) as SectionKeys[];
-      const scrollDirection = event.deltaY > 0; 
-  
+      const scrollDirection = event.deltaY > 0;
+
       const currentSectionIndex = sections.findIndex(
         (section) => section === activeSection
       );
-  
+
       if (scrollDirection) {
         if (currentSectionIndex < sections.length) {
           const nextSection = sections[currentSectionIndex + 1];
           scrollToSection(nextSection);
-        }else{
+        } else {
           return;
         }
       } else {
@@ -109,13 +116,17 @@ const Work = () => {
         }
       }
     };
-  
-    window.addEventListener('wheel', handleScroll, { passive: false });
-  
+
+    window.addEventListener("wheel", handleScroll, { passive: false });
+
     return () => {
-      window.removeEventListener('wheel', handleScroll);
+      window.removeEventListener("wheel", handleScroll);
     };
   }, [activeSection]);
+
+  const handleProjectClick = (id: number) => {
+    navigate(`/project/${id}`); // Adjust the route as needed
+  };
 
   return (
     <div>
@@ -146,49 +157,118 @@ const Work = () => {
       </div>
 
       <div className="flex">
-      <div
-    className="sidebar h-screen w-[15vw] border-r-[2px] hidden lg:flex" style={{ borderColor: "#D6D6D6FF" }}>
-    <div className="space-y-1 m-4">
-      <h2 className="text-2xl text-black mb-4 mt-14">Projects</h2>
-      <ul className="space-y-1">
-        {projectNames.map((project) => (
-          <li key={project.id}>
-            <a
-              href={`#${project.id}`}
-              className={`block cursor-pointer p-2 ${activeSection === project.id ? "text-xl text-black" : "text-lg text-gray-400"}`}
-            >
-              {project.name} {/* Display the actual project name */}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
+        <div
+          className="sidebar h-screen w-[15vw] border-r-[2px] hidden lg:flex"
+          style={{ borderColor: "#D6D6D6FF" }}
+        >
+          <div className="space-y-1 m-4">
+            <h2 className="text-2xl text-black mb-4 mt-14">Projects</h2>
+            <ul className="space-y-1">
+              {projectNames.map((project) => (
+                <li key={project.id}>
+                  <a
+                    href={`#${project.id}`}
+                    className={`block cursor-pointer p-2 ${
+                      activeSection === project.id
+                        ? "text-xl text-black"
+                        : "text-lg text-gray-400"
+                    }`}
+                  >
+                    {project.name} 
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
         {/* Project Sections */}
         <div className="flex-1 mt-20">
-          <div id="project1" ref={sectionRefs.project1} className="mt-4 lg:mt-0 h-screen">
-            <img src={Streamverse} alt="Streamverse mockup" className="w-[100vw] h-[100vh] object-cover" />
+          <div
+          id="project1"
+          ref={sectionRefs.project1}
+          className="mt-4 lg:mt-0 h-screen cursor-pointer" // Added cursor-pointer for visual indication
+          onClick={() => handleProjectClick(1)} // Added onClick event
+        >
+          <img
+            src={Streamverse}
+            alt="Streamverse mockup"
+            className="w-[100vw] h-[100vh] object-cover"
+          />
           </div>
-          <div id="project2" ref={sectionRefs.project2} className="mt-4 lg:mt-0 h-screen">
-            <img src={NusaTravel} alt="NusaTravel mockup" className="w-[100vw] h-[100vh] object-cover" />
+          <div
+            id="project2"
+            ref={sectionRefs.project2}
+            className="mt-4 lg:mt-0 h-screen cursor-pointer"
+            onClick={() => handleProjectClick(2)}
+          >
+            <img
+              src={NusaTravel}
+              alt="NusaTravel mockup"
+              className="w-[100vw] h-[100vh] object-cover"
+            />
           </div>
-          <div id="project3" ref={sectionRefs.project3} className="mt-4 lg:mt-0 h-screen">
-            <img src={CareerSpot} alt="CareerSpot mockup" className="w-[100vw] h-[100vh] object-cover" />
+          <div
+            id="project3"
+            ref={sectionRefs.project3}
+            className="mt-4 lg:mt-0 h-screen cursor-pointer"
+            onClick={() => handleProjectClick(3)}
+          >
+            <img
+              src={CareerSpot}
+              alt="CareerSpot mockup"
+              className="w-[100vw] h-[100vh] object-cover"
+            />
           </div>
-          <div id="project4" ref={sectionRefs.project4} className="mt-4 lg:mt-0 h-screen">
-            <img src={NuatTime} alt="NuatTime mockup" className="w-[100vw] h-[100vh] object-cover" />
+          <div
+            id="project4"
+            ref={sectionRefs.project4}
+            className="mt-4 lg:mt-0 h-screen cursor-pointer"
+            onClick={() => handleProjectClick(4)}
+          >
+            <img
+              src={NuatTime}
+              alt="NuatTime mockup"
+              className="w-[100vw] h-[100vh] object-cover"
+            />
           </div>
-          <div id="project5" ref={sectionRefs.project5} className="mt-4 lg:mt-0 h-screen">
-            <img src={ImagineCup} alt="ImagineCup mockup" className="w-[100vw] h-[100vh] object-cover" />
+          <div
+            id="project5"
+            ref={sectionRefs.project5}
+            className="mt-4 lg:mt-0 h-screen cursor-pointer"
+            onClick={() => handleProjectClick(5)}
+          >
+            <img
+              src={ImagineCup}
+              alt="ImagineCup mockup"
+              className="w-[100vw] h-[100vh] object-cover"
+            />
           </div>
-          <div id="project6" ref={sectionRefs.project6} className="mt-4 lg:mt-0 h-screen">
-            <img src={BXplore} alt="BXplore mockup" className="w-[100vw] h-[100vh] object-cover" />
+          <div
+            id="project6"
+            ref={sectionRefs.project6}
+            className="mt-4 lg:mt-0 h-screen cursor-pointer"
+            onClick={() => handleProjectClick(6)}
+          >
+            <img
+              src={BXplore}
+              alt="BXplore mockup"
+              className="w-[100vw] h-[100vh] object-cover"
+            />
           </div>
-          <div id="project7" ref={sectionRefs.project7} className="mt-4 lg:mt-0 h-screen">
-            <img src={HealthyGood} alt="HealthyGood mockup" className="w-[100vw] h-[100vh] object-cover" />
+          <div
+            id="project7"
+            ref={sectionRefs.project7}
+            className="mt-4 lg:mt-0 h-screen cursor-pointer"
+            onClick={() => handleProjectClick(7)}
+          >
+            <img
+              src={HealthyGood}
+              alt="HealthyGood mockup"
+              className="w-[100vw] h-[100vh] object-cover"
+            />
           </div>
-        </div>
+          </div>
       </div>
 
       {/* Footer */}

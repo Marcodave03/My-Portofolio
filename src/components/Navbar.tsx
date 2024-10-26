@@ -14,10 +14,10 @@ const Navbar: React.FC = () => {
 
   return (
     <div className="navbar-bg fixed top-0 left-0 w-full z-50">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div className="mx-auto py-2 flex justify-between items-center">
         <button
           onClick={() => handleNavigation("/about")}
-          className="relative overflow-hidden group"  style={{color:"#333333"}}
+          className="relative overflow-hidden group ml-2"  style={{color:"#333333"}}
         >
           <span className="text-xl font-bold block transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"  style={{color:"#333333"}}>
             M D.
@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
           </span>
         </button>
 
-        <div className="flex space-x-6">
+        <div className="flex space-x-6 mr-2">
           <button
             onClick={() => handleNavigation("/home")}
             className="w-16 relative overflow-hidden text-gray-600 group"

@@ -9,6 +9,7 @@ import PageAnimation from "./components/PageAnimation";
 import Home from "./pages/Home";
 import Work from "./pages/Work";
 import About from "./pages/About";
+import Projects from "./pages/Projects";
 import BubbleBackground from "./background/AnimatedBackground";
 import Cursor from "./components/Cursor";
 import ScrollToTop from "./components/ScrollToTop";
@@ -36,6 +37,7 @@ function AnimatedRoutes() {
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/work" element={<Work />} />
+          <Route path="/project/:projectId" element={<Projects />} />
         </Routes>
       </PageAnimation>
     </>
