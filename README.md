@@ -4,6 +4,15 @@ Tailwind
 GSAP
 MUI
 
+
+
+..publication link
+..responsive
+..next previous button
+..smaller fonts
+..ko edwin's feedback
+..overall body review
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

@@ -8,6 +8,46 @@ import NusaTravel from "../assets/Macbook Nusatravel.png";
 import BXplore from "../assets/Mockup BExplore.png";
 import HealthyGood from "../assets/Mockup Healthygoods.png";
 
+import StreamVerse1 from "../assets/streamverse (1).png"
+import StreamVerse2 from "../assets/streamverse (2).png"
+import StreamVerse3 from "../assets/streamverse (3).png"
+import StreamVerse4 from "../assets/streamverse (4).png"
+
+import NusaTravel1 from "../assets/nusatravel (1).png"
+import NusaTravel2 from "../assets/nusatravel (2).png"
+import NusaTravel3 from "../assets/nusatravel (3).png"
+import NusaTravel4 from "../assets/nusatravel (4).png"
+
+import CareerSpot1 from "../assets/careerspot (1).png"
+import CareerSpot2 from "../assets/careerspot (2).png"
+import CareerSpot3 from "../assets/careerspot (3).png"
+import CareerSpot4 from "../assets/careerspot (4).png"
+
+import NuatTime1 from "../assets/nuattime (1).png"
+import NuatTime2 from "../assets/nuattime (2).png"
+import NuatTime3 from "../assets/nuattime (3).png"
+import NuatTime4 from "../assets/nuattime (4).png"
+
+import Preform1 from "../assets/preform (1).png"
+import Preform2 from "../assets/preform (2).png"
+import Preform3 from "../assets/preform (3).png"
+import Preform4 from "../assets/preform (4).png"
+import Preform5 from "../assets/preform (5).png"
+
+import BXplore1 from "../assets/bxplore (1).png"
+import BXplore2 from "../assets/bxplore (2).png"
+import BXplore3 from "../assets/bxplore (3).png"
+import BXplore4 from "../assets/bxplore (4).png"
+import BXplore5 from "../assets/bxplore (5).png"
+
+import HealthyGoods1 from "../assets/healthygood (1).png"
+import HealthyGoods2 from "../assets/healthygood (2).png"
+import HealthyGoods3 from "../assets/healthygood (3).png"
+import HealthyGoods4 from "../assets/healthygood (4).png"
+import HealthyGoods5 from "../assets/healthygood (5).png"
+
+
+
 import { useNavigate, useParams } from "react-router-dom";
 import { pageTransitionIn } from "../utils/gsapAnimation";
 import { ArrowForward } from "@mui/icons-material";
@@ -42,7 +82,7 @@ const projects: Project[] = [
     solution: "StreamVerse leverages the Hedera network to provide creators with full ownership, ensuring they can monetize their work directly without intermediaries.",
     featuresScope: "Key features include content minting, real-time analytics, Streaming and direct payment integration, allowing creators to track performance and earnings.",
     development: "Developed using React for the frontend, with smart contracts implemented in Solidity on the Hedera network to ensure transparency and security.",
-    gallery: [Streamverse, Streamverse, Streamverse, Streamverse], // Array of image sources
+    gallery: [StreamVerse1,StreamVerse2,StreamVerse3,StreamVerse4], // Array of image sources
     links: ["https://link1.com", "https://link2.com"], // Array of project links
   },
   {
@@ -57,7 +97,7 @@ const projects: Project[] = [
     solution: "NusaTravel presents a curated selection of travel packages that showcase the beauty and culture of NTT, making planning easy and enjoyable.",
     featuresScope: "The website includes information about Nusa Tenggara, hotel bookings, interesting places, preparation, and user-generated content showcasing real traveler experiences.",
     development: "",
-    gallery: [NusaTravel, NusaTravel, NusaTravel, NusaTravel], 
+    gallery: [NusaTravel1, NusaTravel2, NusaTravel3, NusaTravel4], 
     links: ["https://link1.com", "https://link2.com"],
   },
   {
@@ -72,7 +112,7 @@ const projects: Project[] = [
     solution: "CareerSpots offers a personalized job search experience, utilizing algorithms to match users with opportunities that align with their career goals.",
     featuresScope: "Features include an advanced search engine, resume builder, and personalized job alerts, enhancing the job search experience.",
     development: "Developed using a MERN stack (MySQL, Express, React, Node.js), ensuring a scalable and dynamic user experience.",
-    gallery: [CareerSpot, CareerSpot, CareerSpot, CareerSpot], // Array of image sources
+    gallery: [CareerSpot1, CareerSpot2, CareerSpot3, CareerSpot4], // Array of image sources
     links: ["https://link1.com", "https://link2.com"], // Array of project links
   },
   {
@@ -87,7 +127,7 @@ const projects: Project[] = [
     solution: "The NuatTime website addresses this gap by providing detailed descriptions of our reflexology services and therapist qualifications, all presented in a visually soothing design that reflects the tranquility of our wellness center.",
     featuresScope: "Key features include an intuitive layout for easy navigation, comprehensive service descriptions, therapist profiles, and imagery that evokes a sense of relaxation.",
     development: "The front end was developed using Vanilla, ensuring a responsive and engaging user experience across devices, making it easy for visitors to learn about our offerings.",
-    gallery: [NuatTime, NuatTime, NuatTime, NuatTime], // Array of image sources
+    gallery: [NuatTime1, NuatTime2, NuatTime3, NuatTime4], // Array of image sources
     links: ["https://link1.com", "https://link2.com"], // Array of project links
   },
   {
@@ -102,7 +142,7 @@ const projects: Project[] = [
     solution: "PreForm provides a platform for users to engage in mock interviews with real-time feedback, building confidence and skills.",
     featuresScope: "The app includes customizable interview scenarios, AI feedback on responses, and performance tracking to help users improve over time.",
     development: "Developed using Flutter for a native app feel on both iOS and Android, leveraging OpenAI API for real-time interaction.",
-    gallery: [ImagineCup, ImagineCup, ImagineCup, ImagineCup], // Array of image sources
+    gallery: [Preform1,Preform2,Preform3,Preform4,Preform5], // Array of image sources
     links: ["https://link1.com", "https://link2.com"], // Array of project links
   },
   {
@@ -117,7 +157,7 @@ const projects: Project[] = [
     solution: "BXplore provides an indoor navigation solution that enables users to find their way easily, ensuring accessibility for everyone.",
     featuresScope: "Features include interactive maps, location sharing, and accessibility options for disabled users.",
     development: "Built with Swift for Ios devices, incorporating geolocation and map services for real-time navigation.",
-    gallery: [BXplore, BXplore, BXplore, BXplore], // Array of image sources
+    gallery: [BXplore1, BXplore2, BXplore3, BXplore4, BXplore5], // Array of image sources
     links: ["https://link1.com", "https://link2.com"], // Array of project links
   },
   {
@@ -132,7 +172,7 @@ const projects: Project[] = [
     solution: "HealthyGoods offers a seamless platform for ordering food and finding healthy recipes, promoting better eating habits.",
     featuresScope: "Key features include a shopping list, personalized recipe recommendations, and nutritional information for all food items.",
     development: "Developed using React for the frontend and Node.js for the backend, focusing on performance and user engagement through a responsive design.",
-    gallery: [HealthyGood, HealthyGood, HealthyGood, HealthyGood], // Array of image sources
+    gallery: [HealthyGoods1, HealthyGoods2, HealthyGoods3, HealthyGoods4, HealthyGoods5], // Array of image sources
     links: ["https://link1.com", "https://link2.com"], // Array of project links
   },
  
