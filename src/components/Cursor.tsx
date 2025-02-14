@@ -12,8 +12,7 @@ const CustomCursor: React.FC = () => {
 
     if (!cursorDot || !cursorOutline) return;
 
-    gsap.set(cursorDot, { xPercent: -50, yPercent: -50 });
-    gsap.set(cursorOutline, { xPercent: -50, yPercent: -50 });
+    gsap.set([cursorDot, cursorOutline], { xPercent: -50, yPercent: -50 });
 
     const onMouseMove = (e: MouseEvent) => {
       gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: 0.1 });
@@ -33,14 +32,10 @@ const CustomCursor: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <div className="hidden lg:block pointer-events-none fixed top-0 left-0 w-full h-full z-[9999]">
       <div ref={cursorDotRef} className="cursor-dot" data-cursor-dot></div>
-      <div
-        ref={cursorOutlineRef}
-        className="cursor-outline"
-        data-cursor-outline
-      ></div>
-    </>
+      <div ref={cursorOutlineRef} className="cursor-outline" data-cursor-outline></div>
+    </div>
   );
 };
 

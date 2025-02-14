@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import Marco from "../assets/Marcocolor.svg";
 import { GitHub, Instagram, LinkedIn, ArrowForward } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { pageTransitionIn } from "../utils/gsapAnimation";
-import Footer from "../components/Footer";
 import { IoIosArrowDown } from "react-icons/io";
 import CV from "../assets/CV - Marco Davincent Dermawan.pdf";
 import Streamverse from "../assets/Macbook Streamverse.png";
@@ -97,7 +96,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="text-5xl lg:text-6xl col-span-2 text-start text-wrap mb-2 ml-4 lg:ml-6 z-10 mt-72 lg:mt-0 w-[350px] lg:w-[30vw]">
+        <div className="text-5xl lg:text-6xl col-span-2 text-start text-wrap mb-2 ml-0 lg:ml-6 z-10 mt-72 lg:mt-0 w-[350px] lg:w-[30vw]">
           Web Developer & Digital Designer
           <div className="flex">
             <div
@@ -146,18 +145,19 @@ const Home = () => {
         <IoIosArrowDown color="gray" size={50} />
       </div>
 
-      <div className="ml-4 lg:ml-14 text-6xl col-span-2 text-start w-[100vw] text-wrap mb-4 z-10 mt-64">
+      <div className="ml-4 lg:ml-14 text-6xl col-span-2 text-start w-[100vw] text-wrap mb-4 z-10 mt-64 hover:text-9xl">
         Code. Create. Innovate
       </div>
       <div className="mx-auto w-[95vw] h-[1px] bg-black mb-8"></div>
-
-{/* Flex container for images */}
       <div className="flex flex-col sm:flex-row justify-center mx-auto w-[90vw]">
-        <img
-          src={ImagineCup}
-          alt="mockup"
-          className="mb-2 lg:m-4 w-full sm:w-[44vw] h-auto"
-        />
+        <Link href="">
+          <img
+            src={ImagineCup}
+            alt="mockup"
+            className="mb-2 lg:m-4 w-full sm:w-[44vw] h-auto"
+          />
+        </Link>
+       
         <img
           src={BXplore}
           alt="mockup"
@@ -172,6 +172,9 @@ const Home = () => {
         />
       </div>
 
+
+
+
       <div className="text-4xl col-span-2 text-start lg:text-right w-[100vw] mb-4 mt-14 pr-24 z-20 group ml-4 lg:ml-0">
         <span className="inline-flex items-center relative group-hover:cursor-pointer">
           <ArrowForward
@@ -180,11 +183,11 @@ const Home = () => {
             className="transition-transform duration-300 transform group-hover:-rotate-45 z-30"
           />
           <span
-            className="ml-2 relative"
+            className="ml-2 relative animated-underline"
             onClick={() => handleNavigation("/work")}
           >
             All Projects
-            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform  transition-transform duration-300 scale-x-100"></span>
+            <span className="animated-underline"></span>
           </span>
         </span>
       </div>
@@ -223,8 +226,6 @@ const Home = () => {
           </span>
         </span>
       </div>
-
-      <Footer />
     </div>
   );
 };

@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Marco from "../assets/Marcocolor.svg";
 import { ArrowForward } from "@mui/icons-material";
 import Experience from "./Experience";
-import Footer from "../components/Footer";
 import CV from "../assets/CV - Marco Davincent Dermawan.pdf";
 
 const About = () => {
@@ -54,26 +53,24 @@ const About = () => {
         </div>
       </div> */}
 
+      <div className="hidden lg:block">
+        <div className="overflow-hidden h-[20vh] lg:h-[20vw] relative mt-64 lg:mt-44 -ml-16">
+          <div
+            className="absolute w-[200vw] text-[26vw] lg:text-[16vw] font-bold text-center whitespace-nowrap hover:opacity-0"
+            style={{
+              transform: `translateX(${-scrollPosition * 0.9}px)`,
+            }}
+          >
+            - ABOUT ME ----------------------------
+          </div>
+        </div>
 
-      <div className="overflow-hidden h-[20vh] lg:h-[20vw] relative mt-64 lg:mt-44 -ml-16">
-        <div
-          className="absolute w-[200vw] text-[26vw] lg:text-[16vw] font-bold text-center whitespace-nowrap hover:opacity-0"
-          style={{
-            transform: `translateX(${-scrollPosition * 0.9}px)`,
-          }}
-        >
-          - ABOUT ME ----------------------------
+        <div className="text-4xl lg:text-6xl text-start w-[100vw] text-wrap mt-6 lg:mt-8 ml-4 lg:ml-48 hover:opacity-100 transition-opacity duration-300">
+          Marco Davincent Dermawan
         </div>
       </div>
 
-
-
-      <div className="text-4xl lg:text-6xl text-start w-[100vw] text-wrap mt-6 lg:mt-8 ml-4 lg:ml-48 hover:opacity-100 transition-opacity duration-300">
-        Marco Davincent Dermawan
-      </div>
-
-
-      <div className="flex items-center justify-start mt-64 lg:mt-96 lg:ml-36">
+      <div className="flex items-center justify-start mt-32  lg:mt-96 lg:ml-36">
         <div className="relative lg:w-[30vw] lg:h-[28vw] border-2 border-black rounded-full bg-transparent items-center justify-center mb-2 sm:mb-0  hidden lg:flex">
           <div
             className={`w-[97%] h-[97%] bg-black rounded-full ${
@@ -91,7 +88,6 @@ const About = () => {
           </div>
         </div>
 
-
         <div className="text-xl lg:text-3xl ml-4 lg:ml-8 lg:mr-24 lg:w-[60vw] text-wrap leading-relaxed text-start lg:text-left ">
           "As a <strong className="font-bold">fullstack developer</strong> , I
           turn complex problems into intuitive solutions, blending creativity
@@ -102,17 +98,6 @@ const About = () => {
           to building robust{" "}
           <strong className="font-bold">backend systems</strong>, my goal is to
           craft seamless and scalable digital experiences that make an impact."
-          {/* <div className="text-base mt-8">
-            I embarked on my journey into fullstack development with a deep
-            passion for creating seamless, dynamic applications. Starting with
-            frontend technologies, I focused on React, which allowed me to craft
-            interactive, user-friendly interfaces. As I advanced, I expanded my
-            knowledge in backend development, working with Node.js for its
-            scalability and efficiency, and Laravel for its intuitive approach
-            to building robust APIs and managing complex logic. Together, these
-            technologies enable me to build fullstack solutions that prioritize
-            performance, user experience, and scalable architecture.
-          </div> */}
           <div className="flex">
             <div
               className="relative w-64 h-12 border-2 border-black overflow-hidden group cursor-pointer rounded-full mt-8 lg:mt-5 mr-3"
@@ -150,7 +135,6 @@ const About = () => {
         My Journey
       </div>
       <Experience />
-      <Footer />
     </div>
   );
 };
