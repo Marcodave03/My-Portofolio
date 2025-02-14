@@ -3,13 +3,63 @@ import Marco from "../assets/Marcocolor.svg";
 import { GitHub, Instagram, LinkedIn, ArrowForward } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { pageTransitionIn } from "../utils/gsapAnimation";
-import Footer from "../components/Footer";
 import { IoIosArrowDown } from "react-icons/io";
 import CV from "../assets/CV - Marco Davincent Dermawan.pdf";
 import Streamverse from "../assets/Macbook Streamverse.png";
 import BXplore from "../assets/Mockup BExplore.png";
 import ImagineCup from "../assets/Mockup Imaginecup.png";
 
+interface ProjectImageProps {
+  src: string;
+  alt: string;
+  projectId: number;
+  className?: string;
+}
+
+const ProjectImage: React.FC<ProjectImageProps> = ({ src, alt, projectId, className }) => {
+  const navigate = useNavigate()
+
+  return (
+    // <div
+    //   className={`relative overflow-hidden cursor-pointer ${className}`}
+    //   onClick={() => navigate(`/project/${projectId}`)}
+    // >
+    //   <div className="w-full h-full overflow-hidden">
+    //     <img
+    //       src={src || "/placeholder.svg"}
+    //       alt={alt}
+    //       className="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-110 relative z-[10]"
+    //     />
+    //   </div>
+    //   <div className="absolute inset-0 bg-black opacity-0 hover:opacity-50 transition-opacity duration-300 flex items-center justify-center">
+    //     <span className="text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+    //       Open
+    //     </span>
+    //   </div>
+    // </div>
+    //bisa zoom in 
+
+
+    <div
+    className={`relative overflow-hidden cursor-pointer z-[10] group ${className}`}
+    onClick={() => navigate(`/project/${projectId}`)}
+  >
+    <div className="w-full h-full overflow-hidden">
+      <img
+        src={src || "/placeholder.svg"}
+        alt={alt}
+        className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+      />
+    </div>
+    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity duration-300 flex items-center justify-center">
+      <span className="text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        Open
+      </span>
+    </div>
+  </div>
+  
+  )
+}
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,7 +84,9 @@ const Home = () => {
       <div className="h-16 mx-auto"></div>
       <div className="flex flex-col sm:flex-row items-center justify-center z-10">
         <div className="col-span-2 text-wrap mb-2 z-10 text-start lg:text-right w-[100vw] lg:w-[30vw]">
-          <div className="text-6xl mr-0 lg:mr-6 ml-4 lg:ml-0 mt-32 lg:mt-0">Marco Davincent </div>
+          <div className="text-6xl mr-0 lg:mr-6 ml-4 lg:ml-0 mt-32 lg:mt-0">
+            Marco Davincent{" "}
+          </div>
 
           <div className="text-2xl lg:text-lg text-start ml-6 lg:ml-0 lg:text-right lg:mr-6 mt-10 lg:mt-0">
             Tangerang, Indonesia
@@ -49,7 +101,7 @@ const Home = () => {
               Available for full-time position
             </div>
           </div>
-          
+
           <div className="flex items-center justify-start lg:justify-end text-start lg:text-right ml-8 lg:ml-4 mr-0 lg:mr-8 mt-8 space-x-4">
             <GitHub
               fontSize="large"
@@ -97,7 +149,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="text-5xl lg:text-6xl col-span-2 text-start text-wrap mb-2 ml-4 lg:ml-6 z-10 mt-72 lg:mt-0 w-[350px] lg:w-[30vw]">
+        <div className="text-5xl lg:text-6xl col-span-2 text-start text-wrap mb-2 ml-0 lg:ml-6 z-10 mt-72 lg:mt-0 w-[350px] lg:w-[30vw]">
           Web Developer & Digital Designer
           <div className="flex">
             <div
@@ -146,33 +198,35 @@ const Home = () => {
         <IoIosArrowDown color="gray" size={50} />
       </div>
 
-      <div className="ml-4 lg:ml-14 text-6xl col-span-2 text-start w-[100vw] text-wrap mb-4 z-10 mt-64">
+      <div className="ml-4 lg:ml-14 text-6xl col-span-2 text-start w-[100vw] text-wrap mb-4 z-10 mt-64 hover:text-9xl">
         Code. Create. Innovate
       </div>
       <div className="mx-auto w-[95vw] h-[1px] bg-black mb-8"></div>
 
-{/* Flex container for images */}
       <div className="flex flex-col sm:flex-row justify-center mx-auto w-[90vw]">
-        <img
+        <ProjectImage
           src={ImagineCup}
-          alt="mockup"
-          className="mb-2 lg:m-4 w-full sm:w-[44vw] h-auto"
+          alt="ImagineCup mockup"
+          projectId={5}
+          className="w-full mb-2 lg:m-4 sm:w-[44vw] h-auto"
         />
-        <img
+        <ProjectImage
           src={BXplore}
-          alt="mockup"
-          className="lg:m-4 w-full sm:w-[44vw] h-auto"
+          alt="BXplore mockup"
+          projectId={6}
+          className="w-full lg:m-4 sm:w-[44vw] h-auto"
         />
       </div>
       <div className="flex justify-center mx-auto w-[90vw] mt-4">
-        <img
+        <ProjectImage
           src={Streamverse}
-          alt="mockup"
-          className="w-full sm:w-[90vw] h-auto lg:h-[30vw] object-cover"
+          alt="Streamverse mockup"
+          projectId={1}
+          className="w-full sm:w-[90vw] lg:h-[30vw] h-auto"
         />
       </div>
 
-      <div className="text-4xl col-span-2 text-start lg:text-right w-[100vw] mb-4 mt-14 pr-24 z-20 group ml-4 lg:ml-0">
+      <div className="text-4xl col-span-2 text-start lg:text-right w-[100vw] mb-4 mt-14 pr-24 ml-4 lg:ml-0 group relative z-[10]">
         <span className="inline-flex items-center relative group-hover:cursor-pointer">
           <ArrowForward
             fontSize="large"
@@ -180,11 +234,11 @@ const Home = () => {
             className="transition-transform duration-300 transform group-hover:-rotate-45 z-30"
           />
           <span
-            className="ml-2 relative"
+            className="ml-2 relative animated-underline"
             onClick={() => handleNavigation("/work")}
           >
             All Projects
-            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform  transition-transform duration-300 scale-x-100"></span>
+            <span className="animated-underline"></span>
           </span>
         </span>
       </div>
@@ -207,7 +261,7 @@ const Home = () => {
         craft seamless and scalable digital experiences that make an impact."
       </div>
 
-      <div className="text-4xl lg:col-span-2 text-start lg:text-right w-[100vw] mt-14 lg:pr-24 z-20 group mb-64 ml-4 lg:ml-0">
+      <div className="text-4xl col-span-2 text-start lg:text-right w-[100vw] mb-40 mt-14 pr-24 ml-4 lg:ml-0 group relative z-[10]">
         <span className="inline-flex items-center relative group-hover:cursor-pointer">
           <ArrowForward
             fontSize="large"
@@ -215,16 +269,14 @@ const Home = () => {
             className="transition-transform duration-300 transform group-hover:-rotate-45 z-30"
           />
           <span
-            className="ml-2 relative"
+            className="ml-2 relative animated-underline"
             onClick={() => handleNavigation("/about")}
           >
             About Me
-            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform  transition-transform duration-300 scale-x-100"></span>
+            <span className="animated-underline"></span>
           </span>
         </span>
       </div>
-
-      <Footer />
     </div>
   );
 };

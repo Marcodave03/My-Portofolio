@@ -1,4 +1,3 @@
-import Footer from "../components/Footer";
 import Macbook from "../assets/Macbook Streamverse.png";
 import { useNavigate } from "react-router-dom";
 import { pageTransitionIn } from "../utils/gsapAnimation";
@@ -169,11 +168,6 @@ const Work = () => {
             <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform  transition-transform duration-300 scale-x-100"></span>
           </span>
         </span>
-      </div>
-
-      {/* Footer */}
-      <div className="mt-64">
-        <Footer />
       </div>
     </div>
   );
