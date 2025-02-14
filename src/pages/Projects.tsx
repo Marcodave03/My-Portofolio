@@ -396,8 +396,7 @@ const Projects: React.FC = () => {
         </div>
       </div>
 
-
-      <div className="text-4xl lg:text-right w-[60vw] lg:w-[95vw] ml-14 mb-4 mt-14 lg:pr-24 z-20 group">
+      <div className="text-4xl col-span-2 text-start lg:text-right w-[100vw] mb-40 mt-14 pr-24 ml-4 lg:ml-0 group relative z-[10]">
         <span className="inline-flex items-center relative group-hover:cursor-pointer">
           <ArrowForward
             fontSize="large"
@@ -405,11 +404,11 @@ const Projects: React.FC = () => {
             className="transition-transform duration-300 transform group-hover:-rotate-45 z-30"
           />
           <span
-            className="ml-2 relative"
+            className="ml-2 relative animated-underline"
             onClick={() => handleNavigation("/work")}
           >
             All Projects
-            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform transition-transform duration-300 scale-x-100"></span>
+            <span className="animated-underline"></span>
           </span>
         </span>
       </div>
