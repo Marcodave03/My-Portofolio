@@ -63,6 +63,17 @@ const Navbar: React.FC = () => {
               About
             </span>
           </button>
+          <button
+            onClick={() => handleNavigation("/chat")}
+            className="w-10 relative overflow-hidden text-gray-600 group"
+          >
+            <span className="block transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
+              Chat
+            </span>
+            <span className="block absolute inset-0 transition-transform duration-300 transform translate-y-full group-hover:translate-y-0 font-bold">
+              Chat
+            </span>
+          </button>
         </div>
       </div>
     </div>
