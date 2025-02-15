@@ -56,8 +56,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, onProjectClick, is
       {/* Desktop Sidebar */}
       <div
         className={`
-          fixed top-0 left-0 h-full border-r transition-all duration-300 ease-in-out z-10
-          ${isDark ? 'bg-black border-[#252525]' : 'bg-white border-gray-200'}
+          fixed top-10 left-0 h-full border-r transition-all duration-300 ease-in-out z-10
+          ${isDark ? 'bg-black border-[#252525]' : ' border-gray-200'}
           ${isOpen ? 'w-[85%] sm:w-64 md:w-52' : 'w-16'}
           ${isOpen ? 'shadow-lg md:shadow-none' : ''}
           hidden md:block
@@ -77,30 +77,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, onProjectClick, is
           <div className={`p-3 border-b ${isDark ? 'border-[#252525]' : 'border-gray-200'}`}>
             <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <img src="/9edcdf8d-d69d-402d-9c0b-e43646659ea6.jpg" alt="Profile" className="w-8 h-8 rounded-full object-cover" />
+                {/* <img src="/9edcdf8d-d69d-402d-9c0b-e43646659ea6.jpg" alt="Profile" className="w-8 h-8 rounded-full object-cover" /> */}
                 {isOpen && (
-                  <div className="ml-3">
-                    <h2 className={`font-semibold text-sm md:text-base ${isDark ? 'text-white' : 'text-gray-900'}`}>Ferdinand</h2>
-                    <p className={`text-xs md:text-sm ${isDark ? 'text-[#A1A1A1]' : 'text-gray-500'}`}>Data Scientist</p>
+                  <div className="ml-2">
+                    <h2 className={`font-semibold text-sm md:text-base ${isDark ? 'text-white' : 'text-gray-900'}`}>Marco Davincent</h2>
+                    <p className={`text-xs md:text-sm ${isDark ? 'text-[#A1A1A1]' : 'text-gray-500'}`}>Software & AI</p>
                   </div>
                 )}
               </div>
-              {isOpen && (
-                <button 
-                onClick={toggleTheme} 
-                className={`p-1.5 rounded-lg transition-colors ${
-                  isDark 
-                    ? 'hover:bg-opacity-10 hover:bg-white' 
-                    : 'hover:bg-gray-100'
-                }`}
-              >
-                {isDark ? (
-                  <Sun className="w-5 h-5 text-white" />
-                ) : (
-                  <Moon className="w-5 h-5 text-gray-700" />
-                )}
-              </button>
-              )}
             </div>
           </div>
 

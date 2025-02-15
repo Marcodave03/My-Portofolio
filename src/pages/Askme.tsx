@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 // import Search from "../components/Search";
+import Search from "../components/Chat/Search";
 import Sidebar from "../components/Sidebar";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -8,7 +9,7 @@ const Askme = () => {
   const [isDark, setIsDark] = useState(() => localStorage.getItem("theme") === "dark");
 
   // Explicitly type the searchRef to avoid TypeScript errors
-  const searchRef = useRef<{ handleSubmit?: (query: string) => void } | null>(null);
+  const searchRef = useRef<{ handleSubmit: (query: string) => void } | null>(null);
 
   const toggleTheme = () => {
     setIsDark((prev) => {
@@ -42,7 +43,7 @@ const Askme = () => {
       >
         <main className="flex-1 flex items-center justify-center px-4 md:px-5">
           <div className="w-full max-w-3xl">
-            {/* <Search ref={searchRef} isDark={isDark} /> */}
+            <Search ref={searchRef} isDark={isDark} />
           </div>
         </main>
       </div>
