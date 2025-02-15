@@ -23,8 +23,6 @@ interface MessageContent {
   type: "text" | "image" | "mixed_content"
 }
 
-
-
 interface MessageSearch {
   type: MessageType
   content: MessageContent
@@ -161,8 +159,8 @@ const Search = forwardRef<{ handleSubmit: (msg: string) => void }, SearchProps>(
   }
 
   return (
-    <section
-      className="h-screen flex flex-col items-center justify-center px-4 relative z-[50] bg-slate-500"
+    <div
+      className="h-screen flex flex-col items-center justify-center px-4 bg-transparent"
     >
       <div className="max-w-3xl mx-auto w-full">
         {isLimited && (
@@ -174,7 +172,7 @@ const Search = forwardRef<{ handleSubmit: (msg: string) => void }, SearchProps>(
         <h1
           className={`text-3xl font-normal text-center mb-4 mt-2 ${isChatActive ? "hidden" : ""} ${isDark ? "text-white" : "text-gray-900"}`}
         >
-          Hi, I'm Ferdinand. Ask me anything!
+          I'm Marco. Ask me!
         </h1>
 
         <div ref={chatContainerRef} className="overflow-y-auto max-h-[60vh] mb-4">
@@ -192,7 +190,7 @@ const Search = forwardRef<{ handleSubmit: (msg: string) => void }, SearchProps>(
           <div ref={chatEndRef} />
         </div>
 
-        <div className="flex items-center">
+        <div className="flex items-center border-2 border-r-8">
           <input
             type="text"
             value={inputValue}
@@ -225,7 +223,7 @@ const Search = forwardRef<{ handleSubmit: (msg: string) => void }, SearchProps>(
           </div>
         )}
       </div>
-    </section>
+    </div>
   )
 })
 

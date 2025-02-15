@@ -1,64 +1,59 @@
-import type React from "react";
-import { useState, useEffect } from "react";
-import Preview from "./Preview";
-import TextMessage from "./TextMessage";
+"use client"
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+import type React from "react"
+import { useState, useEffect } from "react"
+import Preview from "./Preview"
+import TextMessage from "./TextMessage"
 
 interface MessageContent {
-  type: "text" | "image" | "mixed_content";
-  content: string | { type: string; content: string }[];
+  type: "text" | "image" | "mixed_content"
+  content: string | { type: string; content: string }[]
 }
 
 interface MessageProps {
   message: {
-    type: "user" | "assistant";
-    content: MessageContent;
-  };
-  showAvatar: boolean;
-  onAnimationComplete?: () => void;
-  isDark: boolean;
+    type: "user" | "assistant"
+    content: MessageContent
+  }
+  showAvatar: boolean
+  onAnimationComplete?: () => void
+  isDark: boolean
 }
 
-const Message: React.FC<MessageProps> = ({
-  message,
-  showAvatar,
-  onAnimationComplete,
-  isDark,
-}) => {
-  const [previewStates, setPreviewStates] = useState<{ [key: number]: boolean }>({});
-  const [imagesLoadingCount, setImagesLoadingCount] = useState(0);
-  const [imagesLoadedCount, setImagesLoadedCount] = useState(0);
+const Message: React.FC<MessageProps> = ({ message, showAvatar, onAnimationComplete, isDark }) => {
+  const [previewStates, setPreviewStates] = useState<{ [key: number]: boolean }>({})
+  const [imagesLoadingCount, setImagesLoadingCount] = useState(0)
+  const [imagesLoadedCount, setImagesLoadedCount] = useState(0)
 
-  const isArrayContent = Array.isArray(message.content.content);
-  const hasImageContent = message.content.type === "mixed_content";
+  const isArrayContent = Array.isArray(message.content.content)
+  const hasImageContent = message.content.type === "mixed_content"
 
-  let contentArray: { type: string; content: string }[] = [];
+  let contentArray: { type: string; content: string }[] = []
 
   if (isArrayContent) {
-    contentArray = message.content.content as { type: string; content: string }[];
+    contentArray = message.content.content as { type: string; content: string }[]
   } else if (hasImageContent) {
-    contentArray = [{ type: "text", content: message.content.content as string }];
+    contentArray = [{ type: "text", content: message.content.content as string }]
   }
 
   useEffect(() => {
     if (contentArray.length) {
-      let totalImages = 0;
+      let totalImages = 0
       contentArray.forEach((part) => {
         if (part.type === "image") {
-          totalImages++;
+          totalImages++
         }
-      });
-      setImagesLoadingCount(totalImages);
-      setImagesLoadedCount(0);
+      })
+      setImagesLoadingCount(totalImages)
+      setImagesLoadedCount(0)
     }
-  }, [message.content.content]);
+  }, [message]) //Fixed dependency
 
-  const allImagesLoaded = imagesLoadingCount === 0 || imagesLoadedCount === imagesLoadingCount;
+  const allImagesLoaded = imagesLoadingCount === 0 || imagesLoadedCount === imagesLoadingCount
 
   const handleImageLoad = () => {
-    setImagesLoadedCount((prev) => prev + 1);
-  };
+    setImagesLoadedCount((prev) => prev + 1)
+  }
 
   if (message.type === "user") {
     return (
@@ -69,7 +64,7 @@ const Message: React.FC<MessageProps> = ({
       >
         {typeof message.content.content === "string" ? message.content.content : ""}
       </div>
-    );
+    )
   }
 
   return (
@@ -95,14 +90,13 @@ const Message: React.FC<MessageProps> = ({
                     key={`text-${index}`}
                     text={part.content}
                     onAnimationComplete={index === contentArray.length - 1 ? onAnimationComplete : undefined}
-                    // onWordShown={onWordShown}
                     isDark={isDark}
                     waitForAllImagesLoaded={true}
                     allImagesLoaded={allImagesLoaded && index === contentArray.length - 1}
                   />
-                );
+                )
               } else if (part.type === "image") {
-                const imageSrc = `${API_URL}${part.content}`;
+                const imageSrc = part.content
                 return (
                   <div className="my-4" key={`img-${index}`}>
                     <img
@@ -119,20 +113,20 @@ const Message: React.FC<MessageProps> = ({
                         }))
                       }
                       onLoad={() => {
-                        handleImageLoad();
+                        handleImageLoad()
                         if (index === contentArray.length - 1) {
                           if (imagesLoadedCount + 1 === imagesLoadingCount) {
-                            onAnimationComplete?.();
+                            onAnimationComplete?.()
                           }
                         }
                       }}
                       onError={(e) => {
-                        console.error("Image failed to load:", e.currentTarget.src);
-                        handleImageLoad();
-                        e.currentTarget.onerror = null;
+                        console.error("Image failed to load:", e.currentTarget.src)
+                        handleImageLoad()
+                        e.currentTarget.onerror = null
                         if (index === contentArray.length - 1) {
                           if (imagesLoadedCount + 1 === imagesLoadingCount) {
-                            onAnimationComplete?.();
+                            onAnimationComplete?.()
                           }
                         }
                       }}
@@ -151,16 +145,15 @@ const Message: React.FC<MessageProps> = ({
                       />
                     )}
                   </div>
-                );
+                )
               }
-              return null;
+              return null
             })}
           </div>
         ) : (
           <TextMessage
             text={message.content.content as string}
             onAnimationComplete={onAnimationComplete}
-            // onWordShown={onWordShown}
             isDark={isDark}
             waitForAllImagesLoaded={false}
             allImagesLoaded
@@ -168,7 +161,8 @@ const Message: React.FC<MessageProps> = ({
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Message;
+export default Message
+

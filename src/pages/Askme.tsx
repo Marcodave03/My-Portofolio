@@ -26,7 +26,7 @@ const Askme = () => {
   };
 
   return (
-    <div className={`flex overflow-hidden font-relative ${isDark ? "bg-black" : "bg-white"}`}>
+    <div className="flex overflow-hidden font-relative">
       <Analytics />
       <Sidebar
         isOpen={isSidebarOpen}
@@ -43,7 +43,7 @@ const Askme = () => {
       >
         <main className="flex-1 flex items-center justify-center px-4 md:px-5">
           <div className="w-full max-w-3xl">
-            <Search ref={searchRef} isDark={isDark} />
+            <Search ref={searchRef}/>
           </div>
         </main>
       </div>
