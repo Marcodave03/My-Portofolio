@@ -26,7 +26,7 @@ const Askme = () => {
   };
 
   return (
-    <div className="flex overflow-hidden font-relative">
+    <div className="flex overflow-hidden font-relative bg-white bg-opacity-50">
       <Analytics />
       <Sidebar
         isOpen={isSidebarOpen}
