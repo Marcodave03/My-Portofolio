@@ -62,6 +62,7 @@ import Home from "./pages/Home"
 import Work from "./pages/Work"
 import About from "./pages/About"
 import Projects from "./pages/Projects"
+import Chat from "./pages/Askme"
 import BubbleBackground from "./background/AnimatedBackground"
 import Cursor from "./components/Cursor"
 import ScrollToTop from "./components/ScrollToTop"
@@ -85,7 +86,7 @@ function AppContent() {
       <BubbleBackground />
       <Cursor />
       <AnimatedRoutes />
-      {location.pathname !== "/work" && <Footer />}
+      {!["/work", "/chat"].includes(location.pathname) && <Footer />}
     </>
   )
 }
@@ -102,6 +103,7 @@ function AnimatedRoutes() {
           <Route path="/about" element={<About />} />
           <Route path="/work" element={<Work />} />
           <Route path="/project/:projectId" element={<Projects />} />
+          <Route path="/chat" element={<Chat />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </PageAnimation>

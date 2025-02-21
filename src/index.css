@@ -117,6 +117,16 @@ h6 {
   background: #333333;
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+
 @keyframes expand-fade {
   0% {
     transform: scale(0);
