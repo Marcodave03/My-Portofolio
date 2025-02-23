@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 // import Search from "../components/Search";
 import Search from "../components/Chat/Search";
 import Sidebar from "../components/Sidebar";
