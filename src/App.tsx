@@ -68,6 +68,7 @@ import Cursor from "./components/Cursor"
 import ScrollToTop from "./components/ScrollToTop"
 import NotFound from "./pages/404"
 import Footer from "./components/Footer"
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
@@ -82,6 +83,7 @@ function AppContent() {
 
   return (
     <>
+     <Analytics />
       <Navbar />
       <BubbleBackground />
       <Cursor />
