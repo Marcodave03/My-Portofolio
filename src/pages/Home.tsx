@@ -20,26 +20,6 @@ const ProjectImage: React.FC<ProjectImageProps> = ({ src, alt, projectId, classN
   const navigate = useNavigate()
 
   return (
-    // <div
-    //   className={`relative overflow-hidden cursor-pointer ${className}`}
-    //   onClick={() => navigate(`/project/${projectId}`)}
-    // >
-    //   <div className="w-full h-full overflow-hidden">
-    //     <img
-    //       src={src || "/placeholder.svg"}
-    //       alt={alt}
-    //       className="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-110 relative z-[10]"
-    //     />
-    //   </div>
-    //   <div className="absolute inset-0 bg-black opacity-0 hover:opacity-50 transition-opacity duration-300 flex items-center justify-center">
-    //     <span className="text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-    //       Open
-    //     </span>
-    //   </div>
-    // </div>
-    //bisa zoom in 
-
-
     <div
     className={`relative overflow-hidden cursor-pointer z-[10] group ${className}`}
     onClick={() => navigate(`/project/${projectId}`)}
@@ -98,7 +78,7 @@ const Home = () => {
               <div className="absolute bg-green-500 w-2 h-2 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
             </div>
             <div className="text-xl lg:text-lg">
-              Available for full-time position
+              Active Freelancer
             </div>
           </div>
 
@@ -150,7 +130,7 @@ const Home = () => {
         </div>
 
         <div className="text-5xl lg:text-6xl col-span-2 text-start text-wrap mb-2 ml-0 lg:ml-6 z-10 mt-72 lg:mt-0 w-[350px] lg:w-[30vw]">
-          Web Developer & Digital Designer
+          Software Engineer & AI Developer
           <div className="flex">
             <div
               className="relative w-64 h-12 border-2 border-black overflow-hidden group cursor-pointer rounded-full mt-5 mr-3"
