@@ -1,0 +1,347 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+ * The identity carried over from the original portfolio: black on
+ * white, narrow Tahoma, one sky-blue accent, and the devices that made
+ * the old site feel like itself — the dot-and-ring cursor, the rising
+ * circles, the marquee headings and the sliding-arrow pill.
+ * ------------------------------------------------------------------ */
+
+@theme {
+  --font-display: Tahoma, Verdana, Geneva, "DejaVu Sans", sans-serif;
+  --font-body: Tahoma, Verdana, Geneva, "DejaVu Sans", sans-serif;
+
+  --text-hero: clamp(2.6rem, 11vw, 9rem);
+  --text-register: clamp(2rem, 6.2vw, 4.5rem);
+  --text-entry: clamp(1.5rem, 3.4vw, 2.75rem);
+}
+
+:root {
+  --bg: #ffffff;
+  --bg-deep: #f4f4f5;
+  --fg: #000000;
+  --fg-soft: #4b5563;
+  --fg-faint: #6b7280;
+  --rule: #d6d6d6;
+  --fill: #f1f5f9;
+
+  /* blue-300 fills sit behind black text; blue-600 is used where the
+     accent has to be text or a hairline on white. */
+  --accent: #93c5fd;
+  --accent-ink: #2563eb;
+  --on-accent: #000000;
+
+  --cover: #333333;
+  /* The portrait illustration needs a dark ground in both themes. */
+  --disc: #141414;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111111;
+    --bg-deep: #0a0a0a;
+    --fg: #ffffff;
+    --fg-soft: #b8b8c0;
+    --fg-faint: #9a9aa4;
+    --rule: #333333;
+    --fill: #1c1c1f;
+    --accent: #93c5fd;
+    --accent-ink: #93c5fd;
+    --on-accent: #000000;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #111111;
+  --bg-deep: #0a0a0a;
+  --fg: #ffffff;
+  --fg-soft: #b8b8c0;
+  --fg-faint: #9a9aa4;
+  --rule: #333333;
+  --fill: #1c1c1f;
+  --accent: #93c5fd;
+  --accent-ink: #93c5fd;
+  --on-accent: #000000;
+  color-scheme: dark;
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-stretch: narrower;
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  p {
+    margin: 0;
+    max-width: 68ch;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+::selection {
+  background: var(--accent);
+  color: #000;
+}
+
+/* The original's scrollbar. */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(70, 70, 70);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
+/* ------------------------------------------------------------------ */
+/* Type roles                                                          */
+/* ------------------------------------------------------------------ */
+
+/* These live in the components layer so Tailwind utilities beat them — a
+   `block` or `mt-6` on an element that also carries `.trace` or `.prose`
+   has to win, or the utility silently does nothing. */
+@layer components {
+  /* Display setting — the oversized Tahoma that carried the old site. */
+  .expanded {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-stretch: narrower;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+  }
+
+  .ui {
+    font-family: var(--font-display);
+    letter-spacing: -0.005em;
+  }
+
+  .prose {
+    font-size: clamp(1rem, 1.3vw, 1.125rem);
+    line-height: 1.7;
+    color: var(--fg-soft);
+  }
+
+  .prose p + p {
+    margin-top: 1.1em;
+  }
+
+  /* Small grey annotation — the caption voice of the original. */
+  .sounding {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.01em;
+    color: var(--fg-faint);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Underline that grows from the left, straight from the original. */
+  .trace {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+  }
+
+  .trace::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+  }
+
+  .trace:hover::after,
+  .trace:focus-visible::after {
+    width: 100%;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Devices                                                             */
+/* ------------------------------------------------------------------ */
+
+/* The pill: sky-blue fills from the left, the disc runs to the far edge
+   and tips up 45° — exactly the original's button behaviour. */
+.pill:hover .pill-fill,
+.pill:focus-visible .pill-fill {
+  width: 100%;
+}
+
+.pill:hover .pill-disc,
+.pill:focus-visible .pill-disc {
+  left: calc(100% - var(--disc) - 6px);
+  transform: rotate(-45deg);
+}
+
+/* Cursor: an 8px dot that keeps up, and a 50px ring that lags behind. */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+  z-index: 9999;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background: var(--fg);
+}
+
+.cursor-ring {
+  width: 50px;
+  height: 50px;
+  margin: -25px 0 0 -25px;
+  border: 1px solid var(--fg);
+  transition: width 0.25s ease, height 0.25s ease, margin 0.25s ease,
+    background-color 0.25s ease;
+}
+
+/* The ring opens up over anything clickable. */
+.cursor-ring[data-over="true"] {
+  width: 74px;
+  height: 74px;
+  margin: -37px 0 0 -37px;
+  background: color-mix(in srgb, var(--accent) 26%, transparent);
+}
+
+/* Page cover — the #333 panel carrying the name of where you landed. */
+.page-cover {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cover);
+  color: #ffffff;
+  pointer-events: none;
+  animation: cover-out 0.85s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes cover-out {
+  0%,
+  22% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+/* Rising circles. Kept quiet: they sit behind everything, hairline only. */
+.circles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  pointer-events: none;
+  list-style: none;
+}
+
+.circles li {
+  position: absolute;
+  display: block;
+  bottom: -160px;
+  border: 2px solid var(--rule);
+  border-radius: 0;
+  animation: rise 25s linear infinite;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.8;
+    border-radius: 0;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Focus                                                               */
+/* ------------------------------------------------------------------ */
+
+:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .circles,
+  .page-cover {
+    display: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* No custom cursor on touch or coarse pointers. */
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}

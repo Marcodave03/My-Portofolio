@@ -1,0 +1,13 @@
+node_modules
+.next
+out
+.env*.local
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+
+# The database holds every word of content and public/uploads holds the
+# certificate scans, so both are tracked — losing them is worse than the
+# binary diffs. Only SQLite's transient journal files are ignored.
+data/*.db-shm
+data/*.db-wal
